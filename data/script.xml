@@ -1,0 +1,320 @@
+<krpano>
+<!-- Titles and descriptions for artwork, or assets to be swiped through. -->
+
+<!-- #####################  UI Button Text  ##################### -->		
+	
+	<data name="o-btn-static">
+		<div style="padding:0px; margin:0px;">
+			<p>accessibility mode</p>
+		</div>
+	</data>
+	
+	<data name="o-btn-control">
+		<p>show user controls</p>
+	</data>
+	
+	<data name="o-btn-close">
+		<div style="padding:0px; margin:0px;">
+			<p>X</p>
+		</div>
+	</data>
+	
+	<data name="o-btn-close2">
+			X
+	</data>
+	
+	<data name="g-stops">
+		<div style="padding:0px; margin:0px;">
+			<p>stops</p>
+		</div>
+	</data>
+
+	<data name="g-backward">
+		<div style="padding:0px; margin:0px;">
+			<p>backward, "<strong>b</strong>"</p>
+		</div>
+	</data>
+	
+	<data name="g-forward">
+		<div style="padding:0px; margin:0px;">
+			<p>forward, "<strong>f</strong>"</p>
+		</div>
+	</data>
+	
+	<data name="g-full">
+		<div style="padding:0px; margin:0px;">
+			<p>fullscreen</p>
+		</div>
+	</data>
+	
+	<data name="g-menu">
+		<div style="padding:0px; margin:0px; line-height:80%;">
+			<p>access</p><p>menu</p>
+		</div>
+	</data>
+	
+	<data name="g-settings">
+		<div style="padding:0px; margin:0px; line-height:80%;">
+			<p>accessibility</p><p>mode, "<strong>tab</strong>"</p>
+		</div>
+	</data>
+	
+	<data name="g-title">
+		<div style="padding:0px; margin:0px;">
+			<p>current stop</p>
+		</div>
+	</data>
+	
+	<data name="g-Zin">
+		<div style="padding:0px; margin:0px;">
+			<p>zoom in, "<strong>a</strong>"</p>
+		</div>
+	</data>
+	
+	<data name="g-Zout">
+		<div style="padding:0px; margin:0px;">
+			<p>zoom out, "<strong>z</strong>"</p>
+		</div>
+	</data>
+	
+	
+	
+	
+	
+<!-- #####################  Object WB-01  ##################### -->	
+<data name="o-01-ttl">
+	<div><p>Wright Bicycle, St. Clair</p></div>
+</data>
+
+<data name="o-01-bdy">
+	<div style="padding:15px;">
+		<h2>Wright Bicycle, St. Clair</h2>
+		<img src="ifg/object_01.jpg"
+		  alt="A simple, streamlined black bicycle. The handle bars are low, mounted at the same height as the seat, and are U-shaped curving downward toward the handles. Two large black tires with yellow trim are of medium thickness and tred."
+		  style="display: block; max-width:90%; margin-left: auto; margin-right: auto;"/>
+		<p>Only five bicycles made by the Wright brothers are known to exist. This one, a model they called the St. Clair, was built in 1898 and sold for $42.50.</p>
+		<p><i>Lent by The Henry Ford</i></p>
+		<p>Learn more about:</p><p><a href="https://airandspace.si.edu/collection-objects/bicycle-st-clair/nasm_I20031228001" target='_blank'>Wright Bicycle, St. Clair</a></p>
+	</div>
+</data>
+
+<!-- #####################  Object WB-02  ##################### -->	
+<data name="o-02-ttl">
+	<div><p>1899 Wright Kite</p></div>
+</data>
+
+<data name="o-02-bdy">
+	<div style="padding:15px;">
+		<h2>1899 Wright Kite</h2>
+		<img src="ifg/object_02.jpg"
+		  alt="Biplane kite with square upper and lower wings and canard."
+		  style="display: block; max-width:90%; margin-left: auto; margin-right: auto;"/>
+		<p>The Wrights combined their wing-warping control concept and the structural design of the Chanute-Herring glider in their first aircraft, a biplane kite with a 5-foot (1.5-meter) wingspan, built in July 1899.</p>
+		<p>To allow for wing-warping, they left the kite unbraced between the front and rear struts (vertical posts). It was controlled with four lines running from the top and bottom of the front outer struts to a pair of sticks held by the operator. Tilting the sticks in opposite directions caused the wing structure to twist.</p>
+		<p>No photographs exist of the 1899 kite; only a sketch of it illustrating wing-warping, drawn by Wilbur in 1912.</p>
+		<p><i>Lent by Rick Young</i></p>
+		<p>Learn more about:</p><p><a href="https://airandspace.si.edu/collection-objects/1899-wright-kite-reproduction/nasm_I20031236002" target='_blank'>1899 Wright Kite (Reproduction)</a></p>
+	</div>
+</data>
+
+<!-- #####################  Object WB-03  ##################### -->	
+<data name="o-03-ttl">
+	<div><p>1900 Wright Glider</p></div>
+</data>
+
+<data name="o-03-bdy">
+	<div style="padding:15px;">
+		<h2>1900 Wright Glider</h2>
+		<img src="ifg/object_03.jpg"
+		  alt="ALT_TEXT"
+		  style="display: block; max-width:90%; margin-left: auto; margin-right: auto;"/>
+		<p>The 1900 glider was the Wrights’ first piloted aircraft, flight tested at Kitty Hawk that fall. It incorporated the wire-braced biplane structure and wing-warping control system they developed with their 1899 kite.</p>
+		<p>The glider generated far less lift than the brothers’ calculations had predicted. However, the control systems—wing warping for lateral control and forward elevator for pitch control—worked beautifully. While the Wrights managed only two minutes of free gliding in 1900, those precious seconds in the air proved their innovative control ideas were sound.
+</p>
+		<p><i>Gift of Ken Hyde, The Wright Experience, Warrenton, VA</i></p>
+		<p><strong>Wingspan:</strong> 17 ft (5.2 m)</p>
+		<p><strong>Wing area:</strong> 165 sq ft (15 sq m)</p>
+		<p><strong>Length:</strong> 11 ft 2 in (3.4 m)</p>
+		<p><strong>Height:</strong> 4 ft 3 in (1.3 m)</p>
+		<p><strong>Weight:</strong> 52 lb (24 kg)</p>	
+		<p>Learn more about:</p><p><a href="https://airandspace.si.edu/collection-objects/1900-wright-glider-reproduction/nasm_A20050452000" target='_blank'>1900 Wright Glider</a></p>
+	</div>
+</data>
+
+<!-- #####################  Object WB-04  ##################### -->	
+<data name="o-04-ttl">
+	<div><p>1902 Wright Glider</p></div>
+</data>
+
+<data name="o-04-bdy">
+	<div style="padding:15px;">
+		<h2>1902 Wright Glider</h2>
+		<img src="ifg/object_04.jpg"
+		  alt="ALT_TEXT"
+		  style="display: block; max-width:90%; margin-left: auto; margin-right: auto;"/>
+		<p>The third in a series of gliders leading up to their powered airplane, the 1902 glider was the Wright brothers’ most advanced yet. Reflecting their single, evolving design, it was again a biplane with a canard (forward) surface for pitch control and wing-warping for lateral control. But its longer, narrower wings, elliptical elevator, and vertical tail gave it a much more graceful, elegant appearance.
+</p>
+		<p>Like the 1901 glider, this one also had a spruce and ash framework supported within pockets sewn into its muslin fabric covering. The fabric was again applied on the bias (the direction of the weave at a 45-degree angle). The wings were rigged with a slight downward droop to counteract side-slipping due to crosswinds.</p>
+		<p><i>Lent by Rick Young</i></p>
+		<p><strong>Wingspan:</strong> 32 ft (9.8 m)</p>
+		<p><strong>Wing area:</strong> 305 sq ft (28.3 sq m)</p>
+		<p><strong>Length:</strong> 16 ft 1 in (4.9 m)</p>
+		<p><strong>Height:</strong> 8 ft (2.4 m)</p>
+		<p><strong>Weight:</strong> 117 lb (53 kg)</p>
+		<p>Learn more about:</p><p><a href="https://airandspace.si.edu/collection-objects/1902-wright-glider-reproduction/nasm_I20031236001" target='_blank'>1902 Wright Glider (reproduction)</a></p>
+	</div>
+</data>
+
+<!-- #####################  Object WB-05  ##################### -->	
+<data name="o-05-ttl">
+	<div><p>1903 Wright Flyer</p></div>
+</data>
+
+<data name="o-05-bdy">
+	<div style="padding:15px;">
+		<h2>1903 Wright Flyer</h2>
+		<img src="ifg/object_05.jpg"
+		  alt="ALT_TEXT"
+		  style="display: block; max-width:90%; margin-left: auto; margin-right: auto;"/>
+		<p><strong>Original Aircraft Flown at Kitty Hawk in 1903</strong></p>
+		<p>This is the 1903 Wright Flyer that made four flights at Kitty Hawk, North Carolina, on December 17, 1903, the best covering 852 feet (260 meters) in 59 seconds. It was the first heavier-than-air, powered aircraft to make a sustained, controlled flight with a pilot aboard.</p>
+		<p>The Wrights used their proven canard biplane configuration, which was rooted in their initial 1899 kite design. Key to the Flyer’s success was its three-axis control system, which featured wing-warping for lateral balance, a moveable rudder, and an elevator for pitch control.</p>
+		<p>The right wing was four inches (10 centimeters) longer than the left to compensate for the engine being heavier than the pilot and mounted to his right. The wings were rigged with a slight droop to reduce the effects of crosswinds.</p>
+		<p><i>Gift of the Estate of Orville Wright</i></p>
+		<p><strong>Wingspan:</strong> 40 ft 4 in (12.3 m)</p>
+		<p><strong>Wing area:</strong> 510 sq ft (47.4 sq m)</p>
+		<p><strong>Length:</strong> 21 ft 1 in (6.4 m)</p>
+		<p><strong>Height:</strong> 9 ft 4 in (2.8 m)</p>
+		<p><strong>Weight:</strong> 750 lb (341 kg), with pilot</p>
+		<p><strong>Engine:</strong> Horizontal 4-cylinder, water-cooled, 12 hp (9 kW)</p>
+		<p>Learn more about:</p><p><a href="https://airandspace.si.edu/collection-objects/1903-wright-flyer/nasm_A19610048000" target='_blank'>1903 Wright Flyer</a></p>
+	</div>
+</data>
+
+<!-- #####################  Object WB-06  ##################### -->	
+<data name="o-06-ttl">
+	<div><p>Original Propeller from the Wright Flyer</p></div>
+</data>
+
+<data name="o-06-bdy">
+	<div style="padding:15px;">
+		<h2>Original Propeller from the Wright Flyer</h2>
+		<img src="ifg/object_06.jpg"
+		  alt="ALT_TEXT"
+		  style="display: block; max-width:90%; margin-left: auto; margin-right: auto;"/>
+		<p>This is one of the propellers used on the Wright Flyer during its historic flights on December 17, 1903. The propeller and airplane were damaged after the final flight that day. The propellers now on the Flyer are original Wright propellers made at a later time.</p>
+		<p><i>Gift of Ivonette Wright Miller and Harold S. Miller</i></p>
+		<p>Learn more about:</p><p><a href="https://airandspace.si.edu/collection-objects/wright-brothers-propeller-fixed-pitch-1903-wright-flyer/nasm_A19830381000" target='_blank'>Original Propeller from the Wright Flyer</a></p>
+	</div>
+
+</data>
+
+<!-- #####################  Object WB-07  ##################### -->	
+<data name="o-07-ttl">
+	<div><p>Original 1903 Fabric from the Wright Flyer</p></div>
+</data>
+
+<data name="o-07-bdy">
+	<div style="padding:15px;">
+		<h2>Original 1903 Fabric from the Wright Flyer</h2>
+		<img src="ifg/object_07.jpg"
+		  alt="ALT_TEXT"
+		  style="display: block; max-width:90%; margin-left: auto; margin-right: auto;"/>
+		<p>This wing panel is a piece of original fabric from the 1903 Wright Flyer. It was on the airplane during its historic flights of December 17, 1903. The Flyer was completely re-covered in 1927 under Orville Wright’s supervision, and again in 1985 by the Museum.</p>
+		<p>This fabric is the same “Pride of the West” unbleached muslin used on the 1901 and 1902 gliders. It was left unsealed to save weight.</p>
+		<p><i>Gift of Marianne Wright Hudec</i></p>
+		<p>Learn more about:</p><p><a href="https://airandspace.si.edu/collection-objects/fabric-aircraft-1903-wright-flyer/nasm_A20090031000" target='_blank'>Original 1903 Fabric from the Wright Flyer</a></p>
+	</div>
+
+</data>
+
+<!-- #####################  Object WB-08  ##################### -->	
+<data name="o-08-ttl">
+	<div><p>Stopwatch, Wright brothers</p></div>
+</data>
+
+<data name="o-08-bdy">
+	<div style="padding:15px;">
+		<h2>Stopwatch, Wright brothers</h2>
+		<img src="ifg/object_08.jpg"
+		  alt="Hand-held stopwatch, silver (nickel plated) with white face and black Arabic numerals (increments of 5, 5-60). Smaller inset dial above second hand mount to record minutes (1-10, increments of 1). &#39; The Sun&#39; in black script immediately below second hand mount. Plain back, no cover over crystal. Mechanism visible through glass when back opened. Markings stamped inside back cover. Glass face is cracked."
+		  style="display: block; max-width:90%; margin-left: auto; margin-right: auto;"/>
+		<p>The Wrights used this stopwatch to time the Kitty Hawk flights.</p>
+		<p><i>Gift of the Institute of Aeronautical Sciences</i></p>
+		<p>Learn more about:</p><p><a href="https://airandspace.si.edu/collection-objects/stopwatch-wright-brothers/nasm_A19640054000" target='_blank'>Stopwatch, Wright brothers</a></p>
+	</div>
+	
+</data>
+
+<!-- #####################  Object WB-09  ##################### -->	
+<data name="o-09-ttl">
+	<div><p>Telegraph key, Wright 1903 flight</p></div>
+</data>
+
+<data name="o-09-bdy">
+	<div style="padding:15px;">
+		<h2>Telegraph key, Wright 1903 flight</h2>
+		<img src="ifg/object_09.jpg"
+		  alt="Telegraph key mounted on light brown pine base, knob broken off. Key lever and sounder hammer are dark brown ferrous metal, other metal components non-ferrous. Wiring mounted in grooves on underside of base."
+		  style="display: block; max-width:90%; margin-left: auto; margin-right: auto;"/>
+		<p>The famous telegram sent home to Dayton, Ohio, from Kitty Hawk, N.C., by the Wright brothers after their successful flights on December 17, 1903, was sent using this telegraph key. The text of the telegram was as follows:</p>
+		<p>"Success four flights Thursday morning all against twenty-one mile per hour wind started from level with engine power alone average speed through air thirty-one miles longest 57 seconds inform press home Christmas. Orevelle Wright."</p>
+		<p>There were two errors in transmission. The flight was actually 59 seconds in duration and Orville's name was misspelled.</p>
+		<p>Learn more about:</p><p><a href="https://airandspace.si.edu/collection-objects/telegraph-key-wright-1903-flight/nasm_A19710854000" target='_blank'>Telegraph key, Wright 1903 flight</a></p>
+	</div>
+</data>
+
+<!-- #####################  Object WB-10  ##################### -->	
+<data name="o-10-ttl">
+	<div><p>Wright Vertical Four-Cylinder Engine</p></div>
+</data>
+
+<data name="o-10-bdy">
+	<div style="padding:15px;">
+		<h2>Wright Vertical Four-Cylinder Engine</h2>
+		<img src="ifg/object_10.jpg"
+		  alt="ALT_TEXT"
+		  style="display: block; max-width:90%; margin-left: auto; margin-right: auto;"/>
+		<p>Standard equipment on Wright Company aircraft from 1910 to 1912 was the 35-horsepower Wright vertical four-cylinder engine and the so-called “bent-end” propeller.</p>
+		<p><i>Gift of the Family of James M. H. Jacobs</i></p>
+		<p>Learn more about:</p><p><a href="https://airandspace.si.edu/collection-objects/wright-vertical-4-line-4-engine/nasm_A19620037000" target='_blank'>Wright Vertical Four-Cylinder Engine</a></p>
+	</div>
+</data>
+
+<!-- #####################  Object WB-11  ##################### -->	
+<data name="o-11-ttl">
+	<div><p>Korona Camera</p></div>
+</data>
+
+<data name="o-11-bdy">
+	<div style="padding:15px;">
+		<h2>Korona Camera</h2>
+		<img src="ifg/object_11.jpg"
+		  alt="ALT_TEXT"
+		  style="display: block; max-width:90%; margin-left: auto; margin-right: auto;"/>
+		<p>The world is fortunate that the Wright brothers were also interested in the relatively new practice of amateur photography. The pictures they took at Kitty Hawk dramatically document their invention of the airplane. A century later, their wonderfully composed images still convey the excitement of the first human steps into the air.</p>
+		<p>This Korona 5 x 7 camera is similar to the one used by Wilbur and Orville at Kitty Hawk. The Wrights’ camera is in the collection of Carillon Historical Park, Dayton, Ohio.</p>
+		<p><i>Lent by Peter L. Jakab</i></p>
+		<p>Learn more about:</p><p><a href="https://airandspace.si.edu/collection-objects/camera-korona/nasm_I20031237001" target='_blank'>Korona Camera</a></p>
+	</div>
+</data>
+
+<!-- #####################  Object WB-12  ##################### -->	
+<data name="o-12-ttl">
+	<div><p>Wood and Fabric from 1903 Wright Flyer, flown on Apollo 11</p></div>
+</data>
+
+<data name="o-12-bdy">
+	<div style="padding:15px;">
+		<h2>From Kitty Hawk to the Moon</h2>
+		<img src="ifg/object_12.jpg"
+		  alt="ALT_TEXT"
+		  style="display: block; max-width:90%; margin-left: auto; margin-right: auto;"/>
+		<p>The aerial age has seen technology develop at an amazing pace. In one lifetime we advanced from the Wright brothers’ 12-second flight in 1903 to landing humans on the Moon and sending spacecraft beyond the edge of the solar system.</p>
+		<p>To symbolically link the first airplane flight with the first human exploration of another celestial body, this sample of wood and fabric from the Wright Flyer was carried to the surface of the Moon by the crew of Apollo 11 in 1969.</p>
+		<p><i>Gift of the U.S. Air Force Museum</i></p>
+		<p>Learn more about:</p><p><a href="https://airandspace.si.edu/collection-objects/wood-and-fabric-1903-wright-flyer-apollo11/nasm_A19721288000" target='_blank'>From Kitty Hawk to the Moon</a></p>
+	</div>
+</data>
+
+</krpano>

@@ -1,0 +1,884 @@
+﻿<krpano version="1.20.11" title="">
+
+	<include url="skin/vtourskin.xml" />
+
+	<include url="data/script.xml" />
+	<include url="tour-actions.xml"/>
+	<include url="guide.xml" devices="normal"/>
+	<include url="analytics.xml"/>
+	
+	
+	<!--####   EDITING TOOLS, Comment on/off for use in editing.   ###-->
+	<!--<include url="editing/editing.xml" />-->
+	<!--<include url="toolbox/toolbox.xml" devices="normal"/>-->
+	<!--<include url="map.xml"/>-->
+	
+    <action name="menu_st" autorun="onstart">
+      delayedcall(0.0, includexml(menu/plugins/menu_sm.xml); delayedcall(0.0, menu_st()));
+    </action> 
+		
+	<!-- startup action - load the first scene -->
+	<action name="startup" autorun="onstart" >
+		if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
+		loadscene(get(startscene), null, MERGE);
+		if(startactions !== null, startactions() );
+	</action>
+
+	<!-- ################################################# -->
+	<!-- ######                                     ###### -->
+	<!-- ######     SCENES for WRIGHT BROTHERS      ###### -->
+	<!-- ######                                     ###### -->
+	<!-- ################################################# -->
+	<scene name="wb_scene_001" title="The Wright Brothers" onstart="" thumburl="panos/001.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-001, 90);
+		set(plugin[mp-WB-001].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-15" vlookat="0.0" fovtype="MFOV" fov="115" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/001.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/001.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+
+		<!-- Navigation Jumps -->
+		<hotspot name="n-001-002" style="jumpS" scale="0.7"	ath="-8.4"  atv="13.4"  	linkedscene="wb_scene_002" />
+		<hotspot name="n-001-003" style="jumpS" scale="0.7"	ath="23.4"  atv="17.2"  	linkedscene="wb_scene_003" />
+
+	</scene>
+
+	<scene name="wb_scene_002" title="Why Wilbur &amp; Orville?" onstart="" thumburl="panos/002.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-002, -90);
+		set(plugin[mp-WB-002].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-104" vlookat="0.0" fovtype="MFOV" fov="89" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/002.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/002.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+		
+		<!-- HOTSPOTS - OBJECTS -->
+		<!-- wb_object_001, 1903 Wright Cycle -->
+		<hotspot name="ldr_wb_001" url="ifg/UI-ldr_L.png"  edge="bottomleft" scale="0.5" ath="-78.3" atv="1.2"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_001m"  parent="hotspot[ldr_wb_001]" type="container" style="ga_object" devices="mobile"
+			url="plugins/textfield.swf" html="data:o-01-ttl"
+   	        edge="bottomright" align="topleft" x="5" y="5"  
+			onclick="popup('html', get(data[o-01-bdy].content), 400, 500, true);"
+            />
+	   	<layer name="wb_object_001"  parent="hotspot[ldr_wb_001]" type="container" style="ga_object" devices="normal"
+			url="plugins/textfield.swf" html="data:o-01-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5"  
+			onclick="popup('html', get(data[o-01-bdy].content), 800, 640, true);"
+            />
+	   	
+		<!-- Navigation Jumps -->
+		<hotspot name="n-002-001" style="jumpS" scale="0.7"	ath="1.7"  	   atv="15"  	linkedscene="wb_scene_001" />
+		<hotspot name="n-002-003" style="jumpS" scale="0.7"	ath="-62.4"    atv="26.7"  	linkedscene="wb_scene_003" />
+		<hotspot name="n-002-004" style="jumpS" scale="0.7"	ath="-149.2"   atv="18.6"  	linkedscene="wb_scene_004" />
+		
+
+	</scene>
+	
+	<scene name="wb_scene_003" title="The Wright Cycle Co." onstart="" thumburl="panos/003.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-003, 70);
+		set(plugin[mp-WB-003].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="85" vlookat="0.0" fovtype="MFOV" fov="116" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/003.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/003.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+		
+		<!-- HOTSPOTS - OBJECTS -->
+		<!-- wb_object_001, 1903 Wright Cycle -->
+		<hotspot name="ldr_wb_001" url="ifg/UI-ldr_R.png"  edge="bottomleft" scale="0.5" ath="56.8" atv="4"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_001m"  parent="hotspot[ldr_wb_001]" type="container"
+		    url="plugins/textfield.swf" html="data:o-01-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-01-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_001"  parent="hotspot[ldr_wb_001]" type="container"
+		    url="plugins/textfield.swf" html="data:o-01-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-01-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- HOTSPOTS - OBJECTS -->
+		<!-- wb_object_005, The 1903 Wright Flyer -->
+		<hotspot name="ldr_wb_005" url="ifg/UI-ldr_L.png"  edge="bottomright" scale="0.5" ath="-1.8" atv="-12.3"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_005m"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_005"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+
+		<!-- Navigation Jumps -->
+		<hotspot name="n-003-001" style="jumpS" scale="0.7"	ath="-179.7" atv="19.2"  	linkedscene="wb_scene_001" />
+		<hotspot name="n-003-002" style="jumpS" scale="0.7"	ath="-80.3"  atv="20.7"  	linkedscene="wb_scene_002" />
+		<hotspot name="n-003-004" style="jumpS" scale="0.7"	ath="-9.3"   atv="22.8"  	linkedscene="wb_scene_004" />
+
+	</scene>
+
+	<scene name="wb_scene_004" title="The 1903 Wright Flyer" onstart="" thumburl="panos/004.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-004, 75);
+		set(plugin[mp-WB-004].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="86" vlookat="0.0" fovtype="MFOV" fov="117" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/004.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/004.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+		
+		<!-- HOTSPOTS - OBJECTS -->
+		<!-- wb_object_003, 1900 Wright Glider-->
+		<hotspot name="ldr_wb_003" url="ifg/UI-ldr_R.png"  edge="bottomleft" scale="0.5" ath="6.9" atv="-20.8"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_003m"  parent="hotspot[ldr_wb_003]" type="container"
+		    url="plugins/textfield.swf" html="data:o-03-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-03-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_003"  parent="hotspot[ldr_wb_003]" type="container"
+		    url="plugins/textfield.swf" html="data:o-03-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-03-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_005, The 1903 Wright Flyer -->
+		<hotspot name="ldr_wb_005" url="ifg/UI-ldr_L.png"  edge="bottomright" scale="0.5" ath="67.2" atv="-22.8"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_005m"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_005"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+
+		<!-- Navigation Jumps -->
+		<hotspot name="n-004-003" style="jumpS" scale="0.7"	ath="-151.7"  atv="19.6"  	linkedscene="wb_scene_003" />
+		<hotspot name="n-004-001" style="jumpS" scale="0.7"	ath="-135.8"  atv="9.4"  	linkedscene="wb_scene_001" />
+		<hotspot name="n-004-002" style="jumpS" scale="0.7"	ath="-74.4"   atv="20.3"  	linkedscene="wb_scene_002" />
+		<hotspot name="n-004-005" style="jumpS" scale="0.7"	ath="-16.7"   atv="15.5"  	linkedscene="wb_scene_005" />
+		<hotspot name="n-004-014" style="jumpS" scale="0.7"	ath="160.8"   atv="21.5"  	linkedscene="wb_scene_014" />
+
+	</scene>
+
+	<scene name="wb_scene_005" title="Visions of a Flying Machine" onstart="" thumburl="panos/005.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-005, -90);
+		set(plugin[mp-WB-005].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="169.25" vlookat="0.0" fovtype="MFOV" fov="104" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/005.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/005.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+		
+		<!-- HOTSPOTS - OBJECTS -->
+		
+		<!-- wb_object_002, 1899 Wright Kite-->
+		<hotspot name="ldr_wb_002" url="ifg/UI-ldr_L.png"  edge="topleft" scale="0.5" ath="-160.7" atv="-22.5"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_002m"  parent="hotspot[ldr_wb_002]" type="container"
+		    url="plugins/textfield.swf" html="data:o-02-ttl" 
+   	        edge="topleft" align="bottomleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-02-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_002"  parent="hotspot[ldr_wb_002]" type="container"
+		    url="plugins/textfield.swf" html="data:o-02-ttl" 
+   	        edge="topleft" align="bottomleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-02-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+		
+		<!-- wb_object_003, 1900 Wright Glider-->
+		<hotspot name="ldr_wb_003" url="ifg/UI-ldr_L.png"  edge="topleft" scale="0.5" ath="-90.9" atv="-21"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_003m"  parent="hotspot[ldr_wb_003]" type="container"
+		    url="plugins/textfield.swf" html="data:o-03-ttl" 
+   	        edge="topleft" align="bottomright" x="5" y="5" 
+			onclick="popup('html', get(data[o-03-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_003"  parent="hotspot[ldr_wb_003]" type="container"
+		    url="plugins/textfield.swf" html="data:o-03-ttl" 
+   	        edge="topleft" align="bottomright" x="5" y="5" 
+			onclick="popup('html', get(data[o-03-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_005, The 1903 Wright Flyer -->
+		<hotspot name="ldr_wb_005" url="ifg/UI-ldr_R.png"  edge="bottomleft" scale="0.5" ath="-31.5" atv="-13.7"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_005m"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_005"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- Navigation Jumps -->
+		<hotspot name="n-005-006" style="jumpS" scale="0.7"	ath="-104.3"  atv="14.7"  	linkedscene="wb_scene_006" />
+		<hotspot name="n-005-004" style="jumpS" scale="0.7"	ath="42.3"    atv="21.2"  	linkedscene="wb_scene_004" />
+
+	</scene>
+
+	<scene name="wb_scene_006" title="Designing The First Wright Glider" onstart="" thumburl="panos/006.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-006, -110);
+		set(plugin[mp-WB-006].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="171" vlookat="0" fovtype="MFOV" fov="125" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/006.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/006.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+		
+		<!-- wb_object_004, 1902 Wright Glider-->
+		<hotspot name="ldr_wb_004" url="ifg/UI-ldr_R.png"  edge="bottomleft" scale="0.5" ath="-65.9" atv="-23.6"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_004m"  parent="hotspot[ldr_wb_004]" type="container"
+		    url="plugins/textfield.swf" html="data:o-04-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-04-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_004"  parent="hotspot[ldr_wb_004]" type="container"
+		    url="plugins/textfield.swf" html="data:o-04-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-04-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_005, The 1903 Wright Flyer -->
+		<hotspot name="ldr_wb_005" url="ifg/UI-ldr_R.png"  edge="bottomleft" scale="0.5" ath="-18.8" atv="-17.1"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_005m"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_005"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_003, 1900 Wright Glider-->
+		<hotspot name="ldr_wb_003" url="ifg/UI-ldr_L.png"  edge="topleft" scale="0.5" ath="104.7" atv="-35.8"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_003m"  parent="hotspot[ldr_wb_003]" type="container"
+		    url="plugins/textfield.swf" html="data:o-03-ttl" 
+   	        edge="topleft" align="bottomright" x="5" y="5" 
+			onclick="popup('html', get(data[o-03-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_003"  parent="hotspot[ldr_wb_003]" type="container"
+		    url="plugins/textfield.swf" html="data:o-03-ttl" 
+   	        edge="topleft" align="bottomright" x="5" y="5" 
+			onclick="popup('html', get(data[o-03-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+
+		<!-- Navigation Jumps -->
+		<hotspot name="n-006-007" style="jumpS" scale="0.7"	ath="-71.2"  atv="15.2"  	linkedscene="wb_scene_007" />
+		<hotspot name="n-006-005" style="jumpS" scale="0.7"	ath="38.6"   atv="16"  		linkedscene="wb_scene_005" />
+
+	</scene>
+
+	<scene name="wb_scene_007" title="The Wright Wind Tunnel" onstart="" thumburl="panos/007.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-007, -85);
+		set(plugin[mp-WB-007].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="171" vlookat="8.7" fovtype="MFOV" fov="82" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/007.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/007.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+		
+		<!-- wb_object_004, 1902 Wright Glider-->
+		<hotspot name="ldr_wb_004" url="ifg/UI-ldr_R.png"  edge="topright" scale="0.5" ath="-86.6" atv="-18.9"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_004m"  parent="hotspot[ldr_wb_004]" type="container"
+		    url="plugins/textfield.swf" html="data:o-04-ttl" 
+   	        edge="topright" align="bottomleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-04-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_004"  parent="hotspot[ldr_wb_004]" type="container"
+		    url="plugins/textfield.swf" html="data:o-04-ttl" 
+   	        edge="topright" align="bottomleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-04-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_005, The 1903 Wright Flyer -->
+		<hotspot name="ldr_wb_005" url="ifg/UI-ldr_L.png"  edge="bottomright" scale="0.5" ath="17.1" atv="-14.4"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_005m"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_005"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_003, 1900 Wright Glider-->
+		<hotspot name="ldr_wb_003" url="ifg/UI-ldr_L.png"  edge="bottomright" scale="0.5" ath="72.1" atv="-18.8"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_003m"  parent="hotspot[ldr_wb_003]" type="container"
+		    url="plugins/textfield.swf" html="data:o-03-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-03-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_003"  parent="hotspot[ldr_wb_003]" type="container"
+		    url="plugins/textfield.swf" html="data:o-03-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-03-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+
+		<!-- Navigation Jumps -->
+		<hotspot name="n-007-009" style="jumpS" scale="0.7"	ath="-98.7"  atv="9.3"  	linkedscene="wb_scene_009" />
+		<hotspot name="n-007-008" style="jumpS" scale="0.7"	ath="-65.9"   atv="20.1"  	linkedscene="wb_scene_008" />
+		<hotspot name="n-007-006" style="jumpS" scale="0.7"	ath="95.7"   atv="14.9"  	linkedscene="wb_scene_006" />
+
+	</scene>
+	
+	<scene name="wb_scene_008" title="Designing the Flyer" onstart="" thumburl="panos/008.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-008, -65);
+		set(plugin[mp-WB-008].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="44" vlookat="12" fovtype="MFOV" fov="101" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/008.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/008.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+		
+		<!-- wb_object_005, The 1903 Wright Flyer -->
+		<hotspot name="ldr_wb_005" url="ifg/UI-ldr_R.png"  edge="bottomleft" scale="0.5" ath="29.6" atv="-14.9"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_005m"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_005"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_006, Propeller -->
+		<hotspot name="ldr_wb_006" url="ifg/UI-ldr_L.png"  edge="bottomright" scale="0.5" ath="-127.6" atv="-19.8"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_006m"  parent="hotspot[ldr_wb_006]" type="container"
+		    url="plugins/textfield.swf" html="data:o-06-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-06-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_006"  parent="hotspot[ldr_wb_006]" type="container"
+		    url="plugins/textfield.swf" html="data:o-06-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-06-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_007, Original Fabric -->
+		<hotspot name="ldr_wb_007" url="ifg/UI-ldr_R.png"  edge="bottomleft" scale="0.5" ath="49.2" atv="14.8"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_007m"  parent="hotspot[ldr_wb_007]" type="container"
+		    url="plugins/textfield.swf" html="data:o-07-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-07-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_007"  parent="hotspot[ldr_wb_007]" type="container"
+		    url="plugins/textfield.swf" html="data:o-07-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-07-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- Navigation Jumps -->
+		<hotspot name="n-008-009" style="jumpS" scale="0.7"	 ath="-72.5"   atv="30.1"  		linkedscene="wb_scene_009" />
+		<hotspot name="n-008-010" style="jumpS" scale="0.7"	 ath="-110.6"  atv="18.8"  		linkedscene="wb_scene_010" />
+		<hotspot name="n-008-007" style="jumpS" scale="0.7"	 ath="100.4"   atv="13.6"  		linkedscene="wb_scene_007" />
+
+	</scene>
+	
+	<scene name="wb_scene_009" title="The Wright Flyer Takes To The Air" onstart="" thumburl="panos/009.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-009, -40);
+		set(plugin[mp-WB-009].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-56" vlookat="0" fovtype="MFOV" fov="110" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/009.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/009.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+			
+		<!-- wb_object_008, Stopwatch -->
+		<hotspot name="ldr_wb_008" url="ifg/UI-ldr_L.png"  edge="bottomright" scale="0.5" ath="-96.2" atv="27"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_008m"  parent="hotspot[ldr_wb_008]" type="container"
+		    url="plugins/textfield.swf" html="data:o-08-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-08-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_008"  parent="hotspot[ldr_wb_008]" type="container"
+		    url="plugins/textfield.swf" html="data:o-08-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-08-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_009, Telegraph Key -->
+		<hotspot name="ldr_wb_009" url="ifg/UI-ldr_R.png"  edge="bottomleft" scale="0.5" ath="-67.8" atv="22.8"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_009m"  parent="hotspot[ldr_wb_009]" type="container"
+		    url="plugins/textfield.swf" html="data:o-09-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-09-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_009"  parent="hotspot[ldr_wb_009]" type="container"
+		    url="plugins/textfield.swf" html="data:o-09-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-09-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_006, Propeller -->
+		<hotspot name="ldr_wb_006" url="ifg/UI-ldr_R.png"  edge="bottomleft" scale="0.5" ath="111" atv="-24.8"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_006m"  parent="hotspot[ldr_wb_006]" type="container"
+		    url="plugins/textfield.swf" html="data:o-06-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-06-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_006"  parent="hotspot[ldr_wb_006]" type="container"
+		    url="plugins/textfield.swf" html="data:o-06-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-06-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_005, The 1903 Wright Flyer -->
+		<hotspot name="ldr_wb_005" url="ifg/UI-ldr_R.png"  edge="bottomleft" scale="0.5" ath="5.3" atv="-11.2"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_005m"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_005"  parent="hotspot[ldr_wb_005]" type="container"
+		    url="plugins/textfield.swf" html="data:o-05-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-05-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_004, 1902 Wright Glider-->
+		<hotspot name="ldr_wb_004" url="ifg/UI-ldr_L.png"  edge="topleft" scale="0.5" ath="76.8" atv="-46"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_004m"  parent="hotspot[ldr_wb_004]" type="container"
+		    url="plugins/textfield.swf" html="data:o-04-ttl" 
+   	        edge="topleft" align="bottomright" x="5" y="5" 
+			onclick="popup('html', get(data[o-04-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_004"  parent="hotspot[ldr_wb_004]" type="container"
+		    url="plugins/textfield.swf" html="data:o-04-ttl" 
+   	        edge="topleft" align="bottomright" x="5" y="5" 
+			onclick="popup('html', get(data[o-04-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+
+		<!-- Navigation Jumps -->
+		<hotspot name="n-009-012" style="jumpS" scale="0.7"	 ath="-46.6"  atv="17.5"  	linkedscene="wb_scene_012" />
+		<hotspot name="n-009-007" style="jumpS" scale="0.7"	 ath="66.3"   atv="10.4"  	linkedscene="wb_scene_007" />
+		<hotspot name="n-009-008" style="jumpS" scale="0.7"	 ath="39.6"   atv="23.2"  	linkedscene="wb_scene_008" />
+		<hotspot name="n-009-010" style="jumpS" scale="0.7"	 ath="174" 	  atv="26" 		linkedscene="wb_scene_010" />
+		<hotspot name="n-009-011" style="jumpS" scale="0.7" ath="-131.5"  atv="27.9"  	linkedscene="wb_scene_011" />
+
+	</scene>
+
+	<scene name="wb_scene_010" title="The Aerial Age Begins" onstart="" thumburl="panos/010.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-010, -35);
+		set(plugin[mp-WB-010].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-89" vlookat="0.0" fovtype="MFOV" fov="97" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/010.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/010.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+		
+		<!-- wb_object_008, Stopwatch -->
+		<hotspot name="ldr_wb_008" url="ifg/UI-ldr_R.png"  edge="topright" scale="0.5" ath="-31.4" atv="19.5"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_008"  parent="hotspot[ldr_wb_008]" type="container"
+		    url="plugins/textfield.swf" html="data:o-08-ttl" 
+   	        edge="topright" align="bottomleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-08-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_008m"  parent="hotspot[ldr_wb_008]" type="container"
+		    url="plugins/textfield.swf" html="data:o-08-ttl" 
+   	        edge="topright" align="bottomleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-08-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_006, Propeller -->
+		<hotspot name="ldr_wb_006" url="ifg/UI-ldr_R.png"  edge="bottomleft" scale="0.5" ath="43.7" atv="-19.4"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_006"  parent="hotspot[ldr_wb_006]" type="container"
+		    url="plugins/textfield.swf" html="data:o-06-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-06-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_006m"  parent="hotspot[ldr_wb_006]" type="container"
+		    url="plugins/textfield.swf" html="data:o-06-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5" 
+			onclick="popup('html', get(data[o-06-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+
+		<!-- Navigation Jumps -->
+		<hotspot name="n-010-009" style="jumpS" scale="0.7"	ath="0"  atv="23"  	linkedscene="wb_scene_009" />
+		<hotspot name="n-010-011" style="jumpS" scale="0.7"	ath="-65"  atv="19"  	linkedscene="wb_scene_011" />
+
+	</scene>
+	
+	<scene name="wb_scene_011" title="The Century’s First Celebrities" onstart="" thumburl="panos/011.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-011, -35);
+		set(plugin[mp-WB-011].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-94" vlookat="0.0" fovtype="MFOV" fov="100" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/011.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/011.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+
+		<!-- Navigation Jumps -->
+		<hotspot name="n-011-009" style="jumpS" scale="0.7"	ath="64.5"  atv="21"  	linkedscene="wb_scene_009" />
+		<hotspot name="n-011-010" style="jumpS" scale="0.7"	ath="127.1"  atv="17"  	linkedscene="wb_scene_010" />
+		<hotspot name="n-011-012" style="jumpS" scale="0.7"	ath="-15.2"  atv="22"  	linkedscene="wb_scene_012" />
+
+	</scene>
+
+	<scene name="wb_scene_012" title="Marketing the Airplane" onstart="" thumburl="panos/012.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-012, -90);
+		set(plugin[mp-WB-012].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="132" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/012.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/012.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+		
+		<!-- wb_object_010, four-cylinder engine -->
+		<hotspot name="ldr_wb_010" url="ifg/UI-ldr_R.png"  edge="topright" scale="0.5" ath="-128.5" atv="34.1"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_010m"  parent="hotspot[ldr_wb_010]" type="container"
+		    url="plugins/textfield.swf" html="data:o-10-ttl" 
+   	        edge="topright" align="bottomleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-10-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_010"  parent="hotspot[ldr_wb_010]" type="container"
+		    url="plugins/textfield.swf" html="data:o-10-ttl" 
+   	        edge="topright" align="bottomleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-10-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+
+		<!-- Navigation Jumps -->
+		<hotspot name="n-012-013" style="jumpS" scale="0.7"	ath="49.2"    atv="24.3"  	linkedscene="wb_scene_013" />
+		<hotspot name="n-012-009" style="jumpS" scale="0.7"	ath="151.4"   atv="22.2"  	linkedscene="wb_scene_009" />
+		<hotspot name="n-012-011" style="jumpS" scale="0.7"	ath="151.4"   atv="22.2"  	linkedscene="wb_scene_011" />
+
+	</scene>
+
+	<scene name="wb_scene_013" title="The Moment of Invention" onstart="" thumburl="panos/013.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-013, 10.0);
+		set(plugin[mp-WB-013].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="30.8" vlookat="22.8" fovtype="MFOV" fov="101" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/013.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/013.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+
+		<!-- wb_object_011, Korona Camera -->
+		<hotspot name="ldr_wb_011" url="ifg/UI-ldr_L.png"  edge="topleft" scale="0.5" ath="63.6" atv="34.6"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_011m"  parent="hotspot[ldr_wb_011]" type="container"
+		    url="plugins/textfield.swf" html="data:o-11-ttl" 
+   	        edge="topleft" align="bottomright" x="5" y="5" 
+			onclick="popup('html', get(data[o-11-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_011"  parent="hotspot[ldr_wb_011]" type="container"
+		    url="plugins/textfield.swf" html="data:o-11-ttl" 
+   	        edge="topleft" align="bottomright" x="5" y="5" 
+			onclick="popup('html', get(data[o-11-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- wb_object_012, Wood & Fabric -->
+		<hotspot name="ldr_wb_012" url="ifg/UI-ldr_R.png"  edge="bottomleft" scale="0.5" ath="-149.1" atv="8.4"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_012m"  parent="hotspot[ldr_wb_012]" type="container"
+		    url="plugins/textfield.swf" html="data:o-12-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5"  
+			onclick="popup('html', get(data[o-12-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_012"  parent="hotspot[ldr_wb_012]" type="container"
+		    url="plugins/textfield.swf" html="data:o-12-ttl" 
+   	        edge="bottomleft" align="topright" x="5" y="5"  
+			onclick="popup('html', get(data[o-12-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+			
+		<!-- Navigation Jumps -->
+		<hotspot name="n-013-014" style="jumpS" scale="0.7"	ath="-156.9"  atv="26.4"  	linkedscene="wb_scene_014" />
+		<hotspot name="n-013-017" style="jumpS" scale="0.7"	ath="-130.2"   atv="13.4"  	linkedscene="wb_scene_017" />
+		<hotspot name="n-013-015" style="jumpS" scale="0.7"	ath="-52.2"   atv="27.2"  	linkedscene="wb_scene_015" />
+		<hotspot name="n-013-012" style="jumpS" scale="0.7"	ath="119.8"   atv="28.4"  	linkedscene="wb_scene_012" />
+
+	</scene>
+
+	<scene name="wb_scene_014" title="From Inventors to Icons" onstart="" thumburl="panos/014.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-014, -90);
+		set(plugin[mp-WB-014].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="46.6" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/014.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/014.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+
+		<!-- wb_object_012, Wood & Fabric -->
+		<hotspot name="ldr_wb_012" url="ifg/UI-ldr_L.png"  edge="bottomright" scale="0.5" ath="-77.2" atv="32.6"
+			handcursor="false" capture="false" zoom="false" zorder="10"
+			/>
+	   	<layer name="wb_object_012m"  parent="hotspot[ldr_wb_012]" type="container"
+		    url="plugins/textfield.swf" html="data:o-12-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-12-bdy].content), 400, 500, true);" style="ga_object" devices="mobile"
+            />
+	   	<layer name="wb_object_012"  parent="hotspot[ldr_wb_012]" type="container"
+		    url="plugins/textfield.swf" html="data:o-12-ttl" 
+   	        edge="bottomright" align="topleft" x="5" y="5" 
+			onclick="popup('html', get(data[o-12-bdy].content), 800, 600, true);" style="ga_object" devices="normal"
+            />
+
+		<!-- Navigation Jumps -->
+		<hotspot name="n-014-017" style="jumpS" scale="0.7"	ath="-91.3"   atv="16.4"  	linkedscene="wb_scene_017" />
+		<hotspot name="n-014-015" style="jumpS" scale="0.7"	ath="6.9"     atv="14.4"  	linkedscene="wb_scene_015" />
+		<hotspot name="n-014-013" style="jumpS" scale="0.7"	ath="23"   	  atv="23.8" 	linkedscene="wb_scene_013" />
+
+	</scene>
+
+	<scene name="wb_scene_015" title="The Airplane In The Arts" onstart="" thumburl="panos/015.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-015, 0.0);
+		set(plugin[mp-WB-015].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-92.53" vlookat="0.0" fovtype="MFOV" fov="103" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/015.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/015.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+		
+		<!-- Navigation Jumps -->
+		<hotspot name="n-015-013" style="jumpS" scale="0.7"	ath="150.2"  atv="23.4"  	linkedscene="wb_scene_013" />
+		<hotspot name="n-015-014" style="jumpS" scale="0.7"	ath="-178"  atv="19.1"  	linkedscene="wb_scene_014" />
+		<hotspot name="n-015-016" style="jumpS" scale="0.7"	ath="8.6"   atv="22.8"  	linkedscene="wb_scene_016" />
+
+	</scene>
+
+	<scene name="wb_scene_016" title="Flight in Literature" onstart="" thumburl="panos/016.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-016, 0.0);
+		set(plugin[mp-WB-016].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="135" vlookat="0.0" fovtype="MFOV" fov="72" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/016.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/016.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+
+		<!-- Navigation Jumps -->
+		<hotspot name="n-016-015" style="jumpS" scale="0.7"	ath="177.3"  atv="22.1"  	linkedscene="wb_scene_015" />
+		<hotspot name="n-016-004" style="jumpS" scale="0.7"	ath="43.4"   atv="13.6"  	linkedscene="wb_scene_004" />
+
+	</scene>
+
+	<scene name="wb_scene_017" title="&#34;Isn't It Astonishing...&#34;" onstart="" thumburl="panos/017.tiles/thumb.jpg" lat="" lng="" heading="">
+
+		<action name="mapDot" devices="normal">
+		tween(global.plugin[pp_blur].range, 0.0);
+		action(activatespot0,mp-WB-017, -90);
+		set(plugin[mp-WB-017].url, ifg/spotP.png);
+		</action>
+
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-133" vlookat="-16" fovtype="MFOV" fov="128" maxpixelzoom="1.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/017.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/017.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,1024,1792,3584,6912" />
+		</image>
+
+		<!-- Navigation Jumps -->
+		<hotspot name="n-017-013" style="jumpS" scale="0.7"	ath="154.7" atv="16.4"  	linkedscene="wb_scene_013" />
+		<hotspot name="n-017-014" style="jumpS" scale="0.7"	ath="-162" atv="21.7"  	linkedscene="wb_scene_014" />
+
+	</scene>
+		
+
+</krpano>

@@ -1,0 +1,197 @@
+<krpano>
+
+ <menu_sm  
+			auto_menu="false"
+			open_start="true"
+			open_start_mob="true"
+			click_hide="false"
+			mobile_click_hide="false"
+			
+			menu_width="230"
+			menu_height="100%"
+			menu_align="lefttop"
+			menu_bgcolor="0x101820"
+			menu_bgborder="0,2,0,0 0xFFFFFF 0.70"
+			menu_bgroundedge="0 11 11 0"
+			menu_bgshadow="2 2 4 0x000000 0.65"
+			menu_bgalpha="0.95"
+			
+			logo_cont_height="95"
+			logo_height="110"
+			logo_cont_color="0x1EB1E4"
+			logo_cont_alpha="0"
+			logo_y="0"
+			logo_x="0"
+			logo="%CURRENTXML%/ifg/logo-NASM.png"
+			logo_text=""
+			logo_txtshadow=""
+			logo_css_text="font-family:DINOT; text-align:left; color:#FFFFFF; font-size:14px;"
+			logo_padding="0 20 0 0"
+			logo_click=""
+			
+			title_height="50"
+			title_width="100%"
+			title_bgcolor="0x033d5a"
+			title_bgalpha="1.0"
+			title_bgshadow="3 4 4 0x000000 0.50"
+			title_bgborder="2,0,0,0 0x75787B 0.80"
+			title_bgroundedge="0 0 0 0"
+			title_text_1="Menu"
+			title_text_bgshadow="1 1 2 0x000000 0.60"
+			title_css="font-family: DINOT, Century Gothic, CenturyGothic, AppleGothic, sans-serif; 
+					   letter-spacing: 0.14em; 
+					   text-align:center; 
+					   margin-left:10px; 
+					   margin-right:10px; 
+					   color:#FFFFFF; 
+					   font-size:22px;"
+			title_padding="7 0 4 0"
+			
+			group_indicator_height="10"
+			
+			head_step_v="10"
+			head_width="90%"
+			head_height="50"
+			head_bgcolor="0x1EB1E4"
+			head_onover_color="0xF4F0EB"
+			head_bgalpha="1.00"
+			head_bgborder="2,2,2,2 0x000000 0.90"
+			head_bgroundedge="0 21 0 14"
+			head_bgshadow="2 2 3 0x000000 0.60"
+			head_text_bgshadow="0 0 0 0x000000 0.60"
+			head_padding="5 20 0 20"
+			head_line_css="font-family: DINOT, Century Gothic, CenturyGothic, AppleGothic, sans-serif; 
+						   letter-spacing: 0.05em;
+						   color:#000000; 
+						   font-size:18px;"
+			
+			line_step_v="10"
+			line_width="90%"
+			line_height="50"
+			line_x=""
+			line_bgcolor="0x1EB1E4"
+			line_onover_color="0xF4F0EB"
+			line_bgalpha="1"
+			line_bgborder="2,2,2,2 0x000000 0.90"
+			line_bgroundedge="0 21 0 14"
+			line_bgshadow="2 2 3 0x000000 0.60"
+			line_text_bgshadow="0 0 0 0x000000 0.00"
+			line_padding="2 0 0 14"
+			line_css="font-family: DINOT, Century Gothic, CenturyGothic, AppleGothic, sans-serif; 
+						   letter-spacing: 0.05em;
+						   color:#000000; 
+						   font-size:16px;"
+			
+			thumbnail_width="85%"
+			thumbnail_height="80"
+			thumbnail_x="0"
+			thumbnail_step_v="10"
+			thumbnail_bgcolor="0xFFFFFF"
+			thumbnail_bgalpha="0.20"
+			thumbnail_onover_bgalpha="0.8"
+			thumbnail_onover_color="0xFFFFFF"
+			thumbnail_bgroundedge="0 28 0 29"
+			thumbnail_bgborder="2,0,0,0 0x669999 1.00"
+			thumbnail_bgshadow="2 3 4 0x1D1D1D 0.60"
+			thumbnail_text_bgshadow="2 2 3 0x1D1D1D 0.60"
+			thumbnail_padding="20 10 20 20"
+			thumbnail_css="font-family:DINOT; text-align:center; color:#FFFFFF; font-size:18px;"
+			
+			view_marker="true"
+			
+			border_viewed_panorama="2,2,2,2 0xFFFFFF 1.00"
+			
+			picture_url=""
+			picture_line="0"
+			picture_height="37"
+			picture_alpha="1"
+			picture_bgborder="2,0,0,0 0x669999 1.00"
+			picture_bgroundedge="2 2 2 2"
+			picture_bgshadow="2 2 3  0x1D1D1D 0.6"
+			picture_crop="0|80|273|80"
+			picture_onower="set(crop,0|0|273|80);"
+			picture_onout="set(crop,0|80|273|80);"
+			
+			icon_style_line="height:25px;vertical-align:middle; margin-right:10px;"
+			icon_style_head="height:25px;vertical-align:middle; margin-right:10px;"
+			
+			bottom_height="40"
+
+			menu_generator="true"
+			loadscene_flags="MERGE"
+			zorder="20"
+ />
+<menu_v name="menu_1" 	title_1="Stops" icon="menu/icon/stop.png" 			 />
+	<menu_v name="menu_1_1"   title_1="The Wright Brothers"  	    		namsc="wb_scene_001" padding="30" height="45" />
+	<menu_v name="menu_1_2"   title_1="Why Wilbur &amp; Orville?"  	   	 	namsc="wb_scene_002" padding="30" height="45" />	
+	<menu_v name="menu_1_3"   title_1="The Wright Cycle Co."  	    		namsc="wb_scene_003" padding="30" height="45" />
+	<menu_v name="menu_1_4"   title_1="The 1903 Wright Flyer"  	    		namsc="wb_scene_004" padding="30" height="45" />
+	<menu_v name="menu_1_5"   title_1="Visions of a Flying Machine"     	namsc="wb_scene_005" padding="30" height="45" />
+	<menu_v name="menu_1_6"   title_1="Designing The First Wright Glider"  	namsc="wb_scene_006" padding="30" height="45" />
+	<menu_v name="menu_1_7"   title_1="The Wright Wind Tunnel"  	    	namsc="wb_scene_007" padding="30" height="45" />
+	<menu_v name="menu_1_8"   title_1="Designing the Flyer"  	    		namsc="wb_scene_008" padding="30" height="45" />
+	<menu_v name="menu_1_9"   title_1="The Wright Flyer Takes To The Air"	namsc="wb_scene_009" padding="30" height="45" />
+	<menu_v name="menu_1_10"  title_1="The Aerial Age Begins"			  	namsc="wb_scene_010" padding="30" height="45" />
+	<menu_v name="menu_1_11"  title_1="The Century&#39;s First Celebrities"	namsc="wb_scene_011" padding="30" height="45" />
+	<menu_v name="menu_1_12"  title_1="Marketing the Airplane"  	    	namsc="wb_scene_012" padding="30" height="45" />
+	<menu_v name="menu_1_13"  title_1="The Moment of Invention"  		    namsc="wb_scene_013" padding="30" height="45" />
+	<menu_v name="menu_1_14"  title_1="From Inventors to Icons"  			namsc="wb_scene_014" padding="30" height="45" />
+	<menu_v name="menu_1_15"  title_1="The Airplane In The Arts"  	   	    namsc="wb_scene_015" padding="30" height="45" />
+	<menu_v name="menu_1_16"  title_1="Flight in Literature"  	    		namsc="wb_scene_016" padding="30" height="45" />
+	<menu_v name="menu_1_17"  title_1="&#34;Isn't It Astonishing...&#34;"  	namsc="wb_scene_017" padding="30" height="45" />
+		
+
+<menu_v name="menu_2" 	title_1="Objects" icon="menu/icon/artifact.png"/>
+	<menu_v name="menu_2_1" title_1="Wright Bicycle, St. Clair"  						height="45" 
+		click="loadscene(wb_scene_003, null, MERGE, BLEND(1));
+		lookat(63.29,0.0,111,0,0);
+		ga_object_clicked(get(name));"/>
+	<menu_v name="menu_2_2" title_1="1899 Wright Kite"  				  				height="45" 
+		click="loadscene(wb_scene_005, null, MERGE, BLEND(1));
+		lookat(-166,-26,55,0,0);
+		ga_object_clicked(get(name));"/>
+   	<menu_v name="menu_2_3" title_1="1900 Wright Glider"				   				height="45" 
+   		click="loadscene(wb_scene_005, null, MERGE, BLEND(1));
+   		lookat(-118,-32,89,0,0);
+		ga_object_clicked(get(name));"/>
+   	<menu_v name="menu_2_4" title_1="1902 Wright Glider"				   				height="45" 
+   		click="loadscene(wb_scene_009, null, MERGE, BLEND(1));
+   		lookat(71,-26,114,0,0);
+		ga_object_clicked(get(name));"/>	
+ 	<menu_v name="menu_2_5" title_1="1903 Wright Flyer"  					   		 	height="45" 
+		click="loadscene(wb_scene_004, null, MERGE, BLEND(1));
+		lookat(61,0,116.0,0,0);
+		ga_object_clicked(get(name));"/>
+ 	<menu_v name="menu_2_6" title_1="Original Propeller, Wright Flyer"  				height="45" 
+		click="loadscene(wb_scene_010, null, MERGE, BLEND(1));
+		lookat(47,-2,84,0,0);
+		ga_object_clicked(get(name));"/>
+ 	<menu_v name="menu_2_7" title_1="Original Fabric, Wright Flyer"  					height="45" 
+		click="loadscene(wb_scene_008, null, MERGE, BLEND(1));
+		lookat(36,20,80.0,0,0);
+		ga_object_clicked(get(name));"/>
+	<menu_v name="menu_2_8" title_1="Stopwatch, Wright brothers"  					   	height="45" 
+		click="loadscene(wb_scene_009, null, MERGE, BLEND(1));
+		lookat(-94,31.00,67,0,0);
+		ga_object_clicked(get(name));"/>
+	<menu_v name="menu_2_9" title_1="Telegraph key, Wright 1903 flight"  			    height="45" 
+		click="loadscene(wb_scene_009, null, MERGE, BLEND(1));
+		lookat(-75,25.00,77,0,0);
+		ga_object_clicked(get(name));"/>
+	<menu_v name="menu_2_10" title_1="Wright Vertical Four-Cylinder Engine"  		    height="45" 
+		click="loadscene(wb_scene_012, null, MERGE, BLEND(1));
+		lookat(-128,30.00,62,0,0);
+		ga_object_clicked(get(name));"/>
+	<menu_v name="menu_2_11" title_1="Korona Camera"  					   				height="45" 
+		click="loadscene(wb_scene_013, null, MERGE, BLEND(1));
+		lookat(49,32,78,0,0);
+		ga_object_clicked(get(name));"/>
+	<menu_v name="menu_2_12" title_1="Wood and Fabric, 1903 Wright Flyer, Apollo 11"     height="45" 
+		click="loadscene(wb_scene_014, null, MERGE, BLEND(1));
+		lookat(-84,29,92,0,0);
+		ga_object_clicked(get(name));"/>
+		
+	
+   	
+
+</krpano>

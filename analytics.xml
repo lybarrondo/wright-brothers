@@ -1,0 +1,29 @@
+<krpano>
+	
+<!-- GA Tracking: event for scenes & applied style for objects -->
+	<events name="ga_events" onnewpano="ga_scene_visited(get(xml.scene));" 
+	keep="true"/>
+
+	<style name="ga_object" 
+		css="font-family:DINOT; font-style: italic; color:0x101820; font-size:16px; padding-left:7px; padding-right:10px; margin-top:0px;"
+        bgalpha="1.0" height="30" bgcolor="0x1fb1e4" bgborder="2, 0x000000, 1.0" bgroundedge="7"
+		onover="tween(bgcolor,0xf3f0ec);"
+		onout="tween(bgcolor,0x1fb1e4);"
+		onclick.addevent="ga_object_clicked(get(name));" 
+		/>
+
+	<action name="ga_scene_visited" type="javascript"><![CDATA[
+		gtag('event', 'click', { 
+			'event_category': 'scene', 
+			'event_label': args[1], 
+		});
+	]]></action>
+
+	<action name="ga_object_clicked" type="javascript"><![CDATA[
+		gtag('event', 'click', { 
+			'event_category': 'object', 
+			'event_label': args[1], 
+		});
+	]]></action>
+
+</krpano>

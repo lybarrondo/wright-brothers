@@ -1,0 +1,795 @@
+<krpano>
+
+	<!-- krpano 1.20.11 - Map -->
+	
+	<!-- a style for a simple textfield element -->
+	<style name="text"
+	       type="text"
+	       background="true"
+	       css="color:#000000;"
+	       enabled="false"
+	       />
+
+	<plugin name="map-button-on" url="ifg/btn-map.png" keep="true"  scale="0.21"
+        align="top" x="165"  y="3"  handcursor="true" tooltip="open map" visible="true"
+        onclick="open(map-box);hidePlugin(map-button-on);"	
+        onover="copy(layer[tooltip].html, tooltip);
+                set(layer[tooltip].visible, true);
+                tween(layer[tooltip].alpha, 1.0, 0.5);
+                asyncloop(hovering, copy(layer[tooltip].x,mouse.stagex); copy(layer[tooltip].y,mouse.stagey); );"
+        onout="tween(layer[tooltip].alpha, 0.0, 0.25, default, set(layer[tooltip].visible,false), copy(layer[tooltip].x,mouse.stagex); 
+				copy(layer[tooltip].y,mouse.stagey); );"
+        />
+				
+	<layer name="map-box" type="container" align="top" x="62" y="32" width="370" height="360" keep="true" zorder="90"
+		maskchildren="false" visible="false" scalechildren="true" scale="1.0"
+		bgcolor="0xd83b21" bgalpha="0.85" bgcapture="true" bgshadow="0 4 10 0x000000 0.3"  
+		bordercolor="0xEFEFEF" borderwidth="1.0" roundedge="2" bgborder="3 0xFFFFFF 1.0"
+		ondown="draglayer();" onclick="close(map-box);showPlugin(map-button-on);">
+		
+		<layer name="zoom-controls" type="container" align="bottomright" x="-1" y="-1" width="38" height="18" keep="true" zorder="91"
+			bgcolor="0xEFEFEF" bgalpha="0.85" bgborder="2 0xFFFFFF 1.0"
+			scalechildren="true" scale="1.0">
+			
+			<layer name="bigger" url="ifg/btn-map-bigger.png" scale="0.14" align="right" x="1" y="0" alpha="1.0" parent="zoom-controls"
+				 onclick="calc(layer[map-box].scale, get(layer[map-box].scale) + 0.2);"
+				/>
+			<layer name="smaller" url="ifg/btn-map-smaller.png" scale="0.14" align="left" x="0" y="0" alpha="1.0" parent="zoom-controls"
+				onclick="calc(layer[map-box].scale, get(layer[map-box].scale) - 0.2);"
+				/>
+			</layer>
+		
+		<layer name="dragBar" url="ifg/btn-drag.png" scale="0.70" align="bottom" y="5" alpha="0.8"
+			enabled="false" handcursor="false" capture="false"/>
+			
+		<layer name="close" url="ifg/close.png" scale="0.6" align="topright" x="-14" y="-14" alpha="0.85" parent="map-box"
+			onclick="close(map-box);showPlugin(map-button-on);"
+	       	onover="tween(alpha,1.0);"
+			onout="tween(alpha,0.85);"
+			/>
+			
+	</layer>
+	
+	<layer name="close-map" url="ifg/close.png" keep="true"  scale="0.4" parent="map-box"
+        align="topright" x="-7"  y="-7"  handcursor="true" tooltip="close map" visible="false"
+        onclick="close(map-box);showPlugin(map-button-on); hidePlugin(map-button-off);"	
+        onover="copy(layer[tooltip].html, tooltip);
+                set(layer[tooltip].visible, true);
+                tween(layer[tooltip].alpha, 1.0, 0.5);
+                asyncloop(hovering, copy(layer[tooltip].x,mouse.stagex); copy(layer[tooltip].y,mouse.stagey); );"
+        onout="tween(layer[tooltip].alpha, 0.0, 0.25, default, set(layer[tooltip].visible,false), copy(layer[tooltip].x,mouse.stagex); 
+				copy(layer[tooltip].y,mouse.stagey); );"
+        />
+	
+   	<style name="mp" 
+		edge="center" 
+		zorder="20" 
+		keep="true" 
+		parent="map" 
+		align="lefttop" 
+		scale="0.7"
+		/>
+
+    <style name="map-spot" 
+        keep="true" align="lefttop" edge="center" zorder="20" scale="0.7" url="ifg/spotR.png"
+        onover.mouse="copy(layer[tooltip-m].html, tooltip);set(layer[tooltip-m].visible, true);
+                      tween(layer[tooltip-m].alpha, 1.0, 0.1);
+                      asyncloop(hovering, copy(layer[tooltip-m].x,mouse.stagex); copy(layer[tooltip-m].y,mouse.stagey); );"
+        onout.mouse="tween(layer[tooltip-m].alpha, 0.0, 0.1, default, set(layer[tooltip-m].visible,false), copy(layer[tooltip-m].x,mouse.stagex); copy(layer[tooltip-m].y,mouse.stagey); );"
+        />	
+		
+  	<!-- the 'tooltip' textfield -->
+  	<layer name="tooltip-m" keep="true"
+  	       url="%SWFPATH%/plugins/textfield.swf"
+  	       parent="STAGE"
+  	       visible="false" alpha="0"
+  	       enabled="false"
+  	       align="lefttop"
+  	       edge="right"
+  	       oy="-2"
+	   	   ox="-15"
+  	       background="true" backgroundcolor="0xFFFFFF" backgroundalpha="1.0"
+  	       border="false" bordercolor="0x000000" borderalpha="1.0"
+  	       borderwidth="1.0" roundedge="2"
+  	       shadow="0.0" shadowrange="4.0" shadowangle="45" shadowcolor="0x000000" shadowalpha="1.0"
+  	       textshadow="0.0" textshadowrange="4.0" textshadowangle="120" textshadowcolor="0x000000" textshadowalpha="1.0"
+  	       css="text-align:center; color:#000000; font-family:Verdana; font-weight:regular; font-size:16px; padding:0px 7px 0px 7px;"
+  	       html=""
+  	       />	
+
+	<layer name="map0b" url="ifg/map0O.png" keep="true"  scale="0.75" zorder="90" parent="map-box"
+        align="lefttop" x="0"  y="0"  handcursor="true" tooltip="Wright Brothers"
+        onclick="action(openmap0);
+		set(plugin[map0b].url, ifg/map0O.png);
+		set(plugin[map1b].url, ifg/map1R.png);
+		set(plugin[map2b].url, ifg/map2R.png);
+		set(plugin[map3b].url, ifg/map3R.png);
+		set(plugin[map4b].url, ifg/map4R.png);
+		set(plugin[map5b].url, ifg/map5R.png);
+		set(plugin[map6b].url, ifg/map6R.png);
+		set(plugin[map7b].url, ifg/map7R.png);"	
+        onover="copy(layer[tooltip].html, tooltip);
+                set(layer[tooltip].visible, true);
+                tween(layer[tooltip].alpha, 1.0, 0.5);
+                asyncloop(hovering, copy(layer[tooltip].x,mouse.stagex); copy(layer[tooltip].y,mouse.stagey); );"
+        onout="tween(layer[tooltip].alpha, 0.0, 0.25, default, set(layer[tooltip].visible,false), copy(layer[tooltip].x,mouse.stagex); 
+				copy(layer[tooltip].y,mouse.stagey); );"
+        />
+
+	<layer name="map0" url="ifg/map-WB.png" keep="true" scale="0.3" zorder="80" parent="map-box" 
+		align="center" x="0"  y="0" alpha="1.0" handcursor="false" 
+		scalechildren="true"
+		visible="true"
+		onclick="action(closemap0);"
+		ondown="draglayer();"
+		/>
+			
+    <!-- radar plugin, set heading with "plugin[radar].heading" -->
+	<plugin name="radar0"
+        url="plugins/radar.swf"
+        alturl="plugins/radar.js"
+        zorder="2"
+        keep="true"
+        heading="0"
+        parent="map0"
+        align="lefttop"
+        edge="center"
+        x="0" y="0"
+        linecolor="0x000000"
+		linewidth="2"
+        fillcolor="0x33ff66"
+        scale="0.5"
+        visible="false"
+		alpha="1.0"
+		editmode="true"
+        />
+
+<!-- ## Map 0, Wright Brothers  ## -->
+   	<plugin name="mp-WB-001" style="map-spot" x="895"   y="117" parent="map0"  tooltip="The Wright Brothers" 
+   		onclick="loadscene(wb_scene_001, null, MERGE, BLEND(1));set(plugin[mp-WB-001].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>	
+   	<plugin name="mp-WB-002" style="map-spot" x="902"   y="454" parent="map0"  tooltip="Why Wilbur &amp; Orville?" 
+   		onclick="loadscene(wb_scene_002, null, MERGE, BLEND(1));set(plugin[mp-WB-002].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>
+   	<plugin name="mp-WB-003" style="map-spot" x="740"   y="302" parent="map0"  tooltip="The Wright Cycle Co." 
+   		onclick="loadscene(wb_scene_003, null, MERGE, BLEND(1));set(plugin[mp-WB-003].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>	
+   	<plugin name="mp-WB-004" style="map-spot" x="692"   y="493" parent="map0"  tooltip="The 1903 Wright Flyer" 
+   		onclick="loadscene(wb_scene_004, null, MERGE, BLEND(1));set(plugin[mp-WB-004].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>
+   	<plugin name="mp-WB-005" style="map-spot" x="848"   y="718" parent="map0"  tooltip="Visions of a Flying Machine" 
+   		onclick="loadscene(wb_scene_005, null, MERGE, BLEND(1));set(plugin[mp-WB-005].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>
+   	<plugin name="mp-WB-006" style="map-spot" x="780"   y="998" parent="map0"  tooltip="Designing The First Wright Glider" 
+   		onclick="loadscene(wb_scene_006, null, MERGE, BLEND(1));set(plugin[mp-WB-006].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>
+   	<plugin name="mp-WB-007" style="map-spot" x="494"   y="988" parent="map0"  tooltip="Designing the Flyer" 
+   		onclick="loadscene(wb_scene_007, null, MERGE, BLEND(1));set(plugin[mp-WB-007].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>
+   	<plugin name="mp-WB-008" style="map-spot" x="335"   y="852" parent="map0"  tooltip="The Wright Flyer Takes To The Air" 
+   		onclick="loadscene(wb_scene_008, null, MERGE, BLEND(1));set(plugin[mp-WB-008].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>	
+   	<plugin name="mp-WB-009" style="map-spot" x="203"   y="829" parent="map0"  tooltip="The Wright Flyer Takes To The Air" 
+   		onclick="loadscene(wb_scene_009, null, MERGE, BLEND(1));set(plugin[mp-WB-009].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>			
+   	<plugin name="mp-WB-010" style="map-spot" x="117"   y="856" parent="map0"  tooltip="The Aerial Age Begins" 
+   		onclick="loadscene(wb_scene_010, null, MERGE, BLEND(1));set(plugin[mp-WB-010].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>	
+   	<plugin name="mp-WB-011" style="map-spot" x="90"   y="704" parent="map0"  tooltip="A NEW STOP" 
+   		onclick="loadscene(wb_scene_011, null, MERGE, BLEND(1));set(plugin[mp-WB-011].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>	
+   	<plugin name="mp-WB-012" style="map-spot" x="112"   y="468" parent="map0"  tooltip="Marketing the Airplane" 
+   		onclick="loadscene(wb_scene_012, null, MERGE, BLEND(1));set(plugin[mp-WB-012].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>
+   	<plugin name="mp-WB-013" style="map-spot" x="226"   y="348" parent="map0"  tooltip="The Moment of Invention" 
+   		onclick="loadscene(wb_scene_013, null, MERGE, BLEND(1));set(plugin[mp-WB-013].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>
+   	<plugin name="mp-WB-014" style="map-spot" x="183"   y="283" parent="map0"  tooltip="From Inventors to Icons" 
+   		onclick="loadscene(wb_scene_014, null, MERGE, BLEND(1));set(plugin[mp-WB-014].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>
+   	<plugin name="mp-WB-015" style="map-spot" x="318"   y="288" parent="map0"  tooltip="The Airplane In The Arts" 
+   		onclick="loadscene(wb_scene_015, null, MERGE, BLEND(1));set(plugin[mp-WB-015].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>
+   	<plugin name="mp-WB-016" style="map-spot" x="552"   y="319" parent="map0"  tooltip="Flight in Literature" 
+   		onclick="loadscene(wb_scene_016, null, MERGE, BLEND(1));set(plugin[mp-WB-016].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>
+   	<plugin name="mp-WB-017" style="map-spot" x="104"   y="110" parent="map0"  tooltip="&#34;Isn't It Astonishing...&#34;" 
+   		onclick="loadscene(wb_scene_017, null, MERGE, BLEND(1));set(plugin[mp-WB-017].url,%SWFPATH%/ifg/spotP.png);skin_updatescroll();"
+   		/>
+
+
+
+		
+
+
+<!-- MAP ACTIONS -->
+
+	<action name="checkMap0">
+		if(plugin[map1].visible,closemap1();openmap0(););
+		if(plugin[map2].visible,closemap2();openmap0(););
+		set(plugin[map0b].url, ifg/map0R.png);
+	</action>
+
+	<action name="checkMap1">
+		if(plugin[map0].visible,closemap0();openmap1(););
+		if(plugin[map2].visible,closemap2();openmap1(););
+	</action>
+
+	<action name="checkMap2">
+		if(plugin[map0].visible,closemap0();openmap2(););
+		if(plugin[map1].visible,closemap1();openmap2(););
+	</action>	
+	
+	
+  <action name="close-image">
+		tween(layer[%1].y,-30);
+		tween(layer[%1].alpha,0.0,0.4,default,set(layer[%1].visible,false));
+  </action>
+
+  <action name="open-image">
+		set(layer[%1].visible,true);tween(layer[%1].y,-80);
+		tween(layer[%1].alpha,1.0,0.4);
+  </action>
+
+     <action name="open-mask">
+ 		set(layer[%1].visible,true);tween(layer[%1].alpha,1.0,0.4);
+     </action>
+
+     <action name="close-mask">
+ 		tween(layer[%1].alpha,0.0,0.4,default,set(layer[%1].visible,false));
+     </action>
+
+  <action name="openHS">
+		set(hotspot[%1].visible,true);
+		tween(hotspot[%1].alpha,0.9,0.4);
+  </action>
+
+  <action name="showBtn">
+		set(plugin[%1].visible,true);
+  </action>
+
+  <action name="hideBtn">
+		set(plugin[%1].visible,false);
+  </action>
+
+  <action name="close-Frame">
+		tween(hotspot[%1].alpha,0.0,0.4,default,set(hotspot[%1].visible,false));
+  </action>
+
+  <action name="open-Frame">
+		set(hotspot[%1].visible,true);
+		tween(hotspot[%1].alpha,1.0,0.4);
+  </action>
+
+	<action name="showP">
+		set(plugin[%1].visible,true);
+	  	set(plugin[%1].alpha,1.0);
+	</action>
+
+	<action name="hideP">
+		set(plugin[%1].visible,false);
+	</action>
+	
+    <action name="showPlugin">
+		tween(plugin[%1].alpha,0.9,0.01,easeoutquad,set(plugin[%1].visible, true));
+    </action>
+	
+    <action name="hidePlugin">
+        tween(plugin[%1].alpha,0.0,0.01,easeoutquad,set(plugin[%1].visible, false));
+    </action>
+
+	<action name="close">
+		tween(layer[%1].alpha,0.0,0.4,default,set(layer[%1].visible,false));
+	</action>
+
+	<action name="open">
+		tween(layer[%1].alpha,1.0,0.4,default,set(layer[%1].visible,true));
+	</action>
+
+	<!-- actions -->
+    <action name="openmap0">
+		tween(plugin[map0].alpha,0.9,0.6,easeoutquad);
+		tween(plugin[map1].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map2].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map3].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map4].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map5].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map6].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map7].alpha,0.0,0.6,easeoutquad);
+		set(plugin[map0].visible, true);
+		set(plugin[map1].visible, false);
+		set(plugin[map2].visible, false);
+		set(plugin[map3].visible, false);
+		set(plugin[map4].visible, false);
+		set(plugin[map5].visible, false);
+		set(plugin[map6].visible, false);
+		set(plugin[map7].visible, false);
+    </action>
+   
+    <action name="openmap1">
+		tween(plugin[map0].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map1].alpha,0.9,0.6,easeoutquad);
+		tween(plugin[map2].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map3].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map4].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map5].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map6].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map7].alpha,0.0,0.6,easeoutquad);
+		set(plugin[map0].visible, false);
+		set(plugin[map1].visible, true);
+		set(plugin[map2].visible, false);
+		set(plugin[map3].visible, false);
+		set(plugin[map4].visible, false);
+		set(plugin[map5].visible, false);
+		set(plugin[map6].visible, false);
+		set(plugin[map7].visible, false);
+    </action>
+    
+    <action name="openmap2">
+		tween(plugin[map0].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map1].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map2].alpha,0.9,0.6,easeoutquad);
+		tween(plugin[map3].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map4].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map5].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map6].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map7].alpha,0.0,0.6,easeoutquad);
+		set(plugin[map0].visible, false);
+		set(plugin[map1].visible, false);
+		set(plugin[map2].visible, true);
+		set(plugin[map3].visible, false);
+		set(plugin[map4].visible, false);
+		set(plugin[map5].visible, false);
+		set(plugin[map6].visible, false);
+		set(plugin[map7].visible, false);
+    </action>
+	
+    <action name="openmap3">
+		tween(plugin[map0].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map1].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map2].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map3].alpha,0.9,0.6,easeoutquad);
+		tween(plugin[map4].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map5].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map6].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map7].alpha,0.0,0.6,easeoutquad);
+		set(plugin[map0].visible, false);
+		set(plugin[map1].visible, false);
+		set(plugin[map2].visible, false);
+		set(plugin[map3].visible, true);
+		set(plugin[map4].visible, false);
+		set(plugin[map5].visible, false);
+		set(plugin[map6].visible, false);
+		set(plugin[map7].visible, false);
+    </action>
+	
+    <action name="openmap4">
+		tween(plugin[map0].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map1].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map2].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map3].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map4].alpha,0.9,0.6,easeoutquad);
+		tween(plugin[map5].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map6].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map7].alpha,0.0,0.6,easeoutquad);
+		set(plugin[map0].visible, false);
+		set(plugin[map1].visible, false);
+		set(plugin[map2].visible, false);
+		set(plugin[map3].visible, false);
+		set(plugin[map4].visible, true);
+		set(plugin[map5].visible, false);
+		set(plugin[map6].visible, false);
+		set(plugin[map7].visible, false);
+    </action>
+	
+    <action name="openmap5">
+		tween(plugin[map0].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map1].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map2].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map3].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map4].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map5].alpha,0.9,0.6,easeoutquad);
+		tween(plugin[map6].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map7].alpha,0.0,0.6,easeoutquad);
+		set(plugin[map0].visible, false);
+		set(plugin[map1].visible, false);
+		set(plugin[map2].visible, false);
+		set(plugin[map3].visible, false);
+		set(plugin[map4].visible, false);
+		set(plugin[map5].visible, true);
+		set(plugin[map6].visible, false);
+		set(plugin[map7].visible, false);
+    </action>
+	
+    <action name="openmap6">
+		tween(plugin[map0].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map1].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map2].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map3].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map4].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map5].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map6].alpha,0.9,0.6,easeoutquad);
+		tween(plugin[map7].alpha,0.0,0.6,easeoutquad);
+		set(plugin[map0].visible, false);
+		set(plugin[map1].visible, false);
+		set(plugin[map2].visible, false);
+		set(plugin[map3].visible, false);
+		set(plugin[map4].visible, false);
+		set(plugin[map5].visible, false);
+		set(plugin[map6].visible, true);
+		set(plugin[map7].visible, false);
+    </action>
+	
+    <action name="openmap7">
+		tween(plugin[map0].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map1].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map2].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map3].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map4].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map5].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map6].alpha,0.0,0.6,easeoutquad);
+		tween(plugin[map7].alpha,0.9,0.6,easeoutquad);
+		set(plugin[map0].visible, false);
+		set(plugin[map1].visible, false);
+		set(plugin[map2].visible, false);
+		set(plugin[map3].visible, false);
+		set(plugin[map4].visible, false);
+		set(plugin[map5].visible, false);
+		set(plugin[map6].visible, false);
+		set(plugin[map7].visible, true);
+    </action>
+
+    <action name="closemap0">
+        tween(plugin[map0].alpha,0.0,0.6,easeoutquad,set(plugin[map0].visible, false));set(plugin[map0b].url, ifg/map0R.png);
+    </action>
+
+	<action name="closemap1">
+        tween(plugin[map1].alpha,0.0,0.6,easeoutquad,set(plugin[map1].visible, false));set(plugin[map1b].url, ifg/map1R.png);
+    </action>
+
+    <action name="closemap2">
+        tween(plugin[map2].alpha,0.0,0.6,easeoutquad,set(plugin[map2].visible, false));set(plugin[map2b].url, ifg/map2R.png);
+    </action>
+	
+    <action name="closemap3">
+        tween(plugin[map3].alpha,0.0,0.6,easeoutquad,set(plugin[map3].visible, false));set(plugin[map3b].url, ifg/map3R.png);
+    </action>
+	
+    <action name="closemap4">
+        tween(plugin[map4].alpha,0.0,0.6,easeoutquad,set(plugin[map4].visible, false));set(plugin[map4b].url, ifg/map4R.png);
+    </action>
+	
+    <action name="closemap5">
+        tween(plugin[map5].alpha,0.0,0.6,easeoutquad,set(plugin[map5].visible, false));set(plugin[map5b].url, ifg/map5R.png);
+    </action>
+	
+    <action name="closemap6">
+        tween(plugin[map6].alpha,0.0,0.6,easeoutquad,set(plugin[map6].visible, false));set(plugin[map6b].url, ifg/map6R.png);
+    </action>
+	
+    <action name="closemap7">
+        tween(plugin[map7].alpha,0.0,0.6,easeoutquad,set(plugin[map7].visible, false));set(plugin[map7b].url, ifg/map7R.png);
+    </action>
+	
+	<action name="activatespot0">
+		set(plugin[activespot0].parent, plugin[%1]);
+		set(plugin[activespot0].visible, true);
+		set(plugin[activespot1].visible, false);
+		set(plugin[activespot2].visible, false);
+		set(plugin[activespot3].visible, false);
+		set(plugin[activespot4].visible, false);
+		set(plugin[activespot5].visible, false);
+		set(plugin[activespot6].visible, false);
+		set(plugin[activespot7].visible, false);
+			copy(plugin[radar0].x, plugin[%1].x);
+			copy(plugin[radar0].y, plugin[%1].y);
+		set(plugin[radar0].visible, true);
+		set(plugin[radar1].visible, false);
+		set(plugin[radar2].visible, false);
+		set(plugin[radar3].visible, false);
+		set(plugin[radar4].visible, false);
+		set(plugin[radar5].visible, false);
+		set(plugin[radar6].visible, false);
+		set(plugin[radar7].visible, false);
+			set(plugin[radar0].heading, %2);
+	</action>
+	
+	<action name="activatespot1">
+		set(plugin[activespot1].parent, plugin[%1]);
+		set(plugin[activespot0].visible, false);
+		set(plugin[activespot1].visible, true);
+		set(plugin[activespot2].visible, false);
+		set(plugin[activespot3].visible, false);
+		set(plugin[activespot4].visible, false);
+		set(plugin[activespot5].visible, false);
+		set(plugin[activespot6].visible, false);
+		set(plugin[activespot7].visible, false);
+			copy(plugin[radar1].x, plugin[%1].x);
+			copy(plugin[radar1].y, plugin[%1].y);
+		set(plugin[radar0].visible, false);
+		set(plugin[radar1].visible, true);
+		set(plugin[radar2].visible, false);
+		set(plugin[radar3].visible, false);
+		set(plugin[radar4].visible, false);
+		set(plugin[radar5].visible, false);
+		set(plugin[radar6].visible, false);
+		set(plugin[radar7].visible, false);
+			set(plugin[radar1].heading, %2);
+	</action>
+	
+	<action name="activatespot2">
+		set(plugin[activespot2].parent, plugin[%1]);
+		set(plugin[activespot0].visible, false);
+		set(plugin[activespot1].visible, false);
+		set(plugin[activespot2].visible, true);
+		set(plugin[activespot3].visible, false);
+		set(plugin[activespot4].visible, false);
+		set(plugin[activespot5].visible, false);
+		set(plugin[activespot6].visible, false);
+		set(plugin[activespot7].visible, false);
+			copy(plugin[radar2].x, plugin[%1].x);
+			copy(plugin[radar2].y, plugin[%1].y);
+		set(plugin[radar0].visible, false);
+		set(plugin[radar1].visible, false);
+		set(plugin[radar2].visible, true);
+		set(plugin[radar3].visible, false);
+		set(plugin[radar4].visible, false);
+		set(plugin[radar5].visible, false);
+		set(plugin[radar6].visible, false);
+		set(plugin[radar7].visible, false);
+			set(plugin[radar2].heading, %2);
+	</action>	
+	
+	<action name="activatespot3">
+		set(plugin[activespot3].parent, plugin[%1]);
+		set(plugin[activespot0].visible, false);
+		set(plugin[activespot1].visible, false);
+		set(plugin[activespot2].visible, false);
+		set(plugin[activespot3].visible, true);
+		set(plugin[activespot4].visible, false);
+		set(plugin[activespot5].visible, false);
+		set(plugin[activespot6].visible, false);
+		set(plugin[activespot7].visible, false);
+			copy(plugin[radar3].x, plugin[%1].x);
+			copy(plugin[radar3].y, plugin[%1].y);
+		set(plugin[radar0].visible, false);
+		set(plugin[radar1].visible, false);
+		set(plugin[radar2].visible, false);
+		set(plugin[radar3].visible, true);
+		set(plugin[radar4].visible, false);
+		set(plugin[radar5].visible, false);
+		set(plugin[radar6].visible, false);
+		set(plugin[radar7].visible, false);
+			set(plugin[radar3].heading, %2);
+	</action>
+	
+	<action name="activatespot4">
+		set(plugin[activespot4].parent, plugin[%1]);
+		set(plugin[activespot0].visible, false);
+		set(plugin[activespot1].visible, false);
+		set(plugin[activespot2].visible, false);
+		set(plugin[activespot3].visible, false);
+		set(plugin[activespot4].visible, true);
+		set(plugin[activespot5].visible, false);
+		set(plugin[activespot6].visible, false);
+		set(plugin[activespot7].visible, false);
+			copy(plugin[radar4].x, plugin[%1].x);
+			copy(plugin[radar4].y, plugin[%1].y);
+		set(plugin[radar0].visible, false);
+		set(plugin[radar1].visible, false);
+		set(plugin[radar2].visible, false);
+		set(plugin[radar3].visible, false);
+		set(plugin[radar4].visible, true);
+		set(plugin[radar5].visible, false);
+		set(plugin[radar6].visible, false);
+		set(plugin[radar7].visible, false);
+			set(plugin[radar4].heading, %2);
+	</action>
+	
+	<action name="activatespot5">
+		set(plugin[activespot5].parent, plugin[%1]);
+		set(plugin[activespot0].visible, false);
+		set(plugin[activespot1].visible, false);
+		set(plugin[activespot2].visible, false);
+		set(plugin[activespot3].visible, false);
+		set(plugin[activespot4].visible, false);
+		set(plugin[activespot5].visible, true);
+		set(plugin[activespot6].visible, false);
+		set(plugin[activespot7].visible, false);
+			copy(plugin[radar5].x, plugin[%1].x);
+			copy(plugin[radar5].y, plugin[%1].y);
+		set(plugin[radar0].visible, false);
+		set(plugin[radar1].visible, false);
+		set(plugin[radar2].visible, false);
+		set(plugin[radar3].visible, false);
+		set(plugin[radar4].visible, false);
+		set(plugin[radar5].visible, true);
+		set(plugin[radar6].visible, false);
+		set(plugin[radar7].visible, false);
+			set(plugin[radar5].heading, %2);
+	</action>
+	
+	<action name="activatespot6">
+		set(plugin[activespot6].parent, plugin[%1]);
+		set(plugin[activespot0].visible, false);
+		set(plugin[activespot1].visible, false);
+		set(plugin[activespot2].visible, false);
+		set(plugin[activespot3].visible, false);
+		set(plugin[activespot4].visible, false);
+		set(plugin[activespot5].visible, false);
+		set(plugin[activespot6].visible, true);
+		set(plugin[activespot7].visible, false);
+			copy(plugin[radar6].x, plugin[%1].x);
+			copy(plugin[radar6].y, plugin[%1].y);
+		set(plugin[radar0].visible, false);
+		set(plugin[radar1].visible, false);
+		set(plugin[radar2].visible, false);
+		set(plugin[radar3].visible, false);
+		set(plugin[radar4].visible, false);
+		set(plugin[radar5].visible, false);
+		set(plugin[radar6].visible, true);
+		set(plugin[radar7].visible, false);
+			set(plugin[radar6].heading, %2);
+	</action>
+	
+	<action name="activatespot7">
+		set(plugin[activespot7].parent, plugin[%1]);
+		set(plugin[activespot0].visible, false);
+		set(plugin[activespot1].visible, false);
+		set(plugin[activespot2].visible, false);
+		set(plugin[activespot3].visible, false);
+		set(plugin[activespot4].visible, false);
+		set(plugin[activespot5].visible, false);
+		set(plugin[activespot6].visible, false);
+		set(plugin[activespot7].visible, true);
+			copy(plugin[radar7].x, plugin[%1].x);
+			copy(plugin[radar7].y, plugin[%1].y);
+		set(plugin[radar0].visible, false);
+		set(plugin[radar1].visible, false);
+		set(plugin[radar2].visible, false);
+		set(plugin[radar3].visible, false);
+		set(plugin[radar4].visible, false);
+		set(plugin[radar5].visible, false);
+		set(plugin[radar6].visible, false);
+		set(plugin[radar7].visible, true);
+			set(plugin[radar7].heading, %2);
+	</action>
+	
+	<!-- the action for dragging the layer elements - call it once in the ondown event -->
+	<action name="draglayer">
+		copy(drag_currentx, x);
+		copy(drag_currenty, y);
+		copy(drag_stagex, mouse.stagex);
+		copy(drag_stagey, mouse.stagey);
+		indexoftxt(align_contains_right, get(align), 'right');
+		indexoftxt(align_contains_bottom, get(align), 'bottom');
+		calc(drag_align_x, align_contains_right GE 0 ? -1 : +1);
+		calc(drag_align_y, align_contains_bottom GE 0 ? -1 : +1);
+		asyncloop(pressed,
+			calc(x, drag_currentx + (mouse.stagex - drag_stagex)*drag_align_x);
+			calc(y, drag_currenty + (mouse.stagey - drag_stagey)*drag_align_y);
+		  );
+	</action>
+
+
+	<!-- a special action for dragging a layer only vertically within its parent layer -->
+	<action name="draglayer_vertically_within_parent">
+		copy(drag_currenty, y);
+		copy(drag_stagey, mouse.stagey);
+		calc(y_min, layer[get(parent)].pixelheight - pixelheight);
+		if(y_min LT 0,
+			asyncloop(pressed,
+				calc(y, drag_currenty + (mouse.stagey - drag_stagey));
+				clamp(y, get(y_min), 0);
+			  );
+		  );
+	</action>
+
+	<data name="testtext">
+		The [b]krpano Viewer[/b] is a small and very flexible high-performance viewer for all kind of panoramic images and interactive virtual tours.
+		The viewer is available as Flash and HTML5 application.
+		The viewer is designed for the usage inside the Browser on Desktop (Windows, Mac, Linux) and on Mobiles/Tablets (iPhone, iPad, Android, ...).[br/]
+		[br/]
+		In addition to the [b]krpano Viewer[/b] there are the [b]krpano Tools[/b] - this are small tools and droplets
+		which are helping to automatically prepare the panoramic images for viewing and making them ready-to-use.
+		Making a pano or a tour is possible just by drag-and-drop.[br/]
+		[br/]
+		Convince yourself by viewing the examples and / or by downloading the krpano Viewer and krpano Tools for free and try using
+		them with your own panoramic images.[br/]
+	</data>
+
+		
+	<!-- ACTIONS -->
+	<action name="checkMap0">
+		
+		if(plugin[map1].visible,closemap1();openmap0(););
+		if(plugin[map2].visible,closemap2();openmap0(););
+		if(plugin[map3].visible,closemap3();openmap0(););
+		if(plugin[map4].visible,closemap4();openmap0(););
+		if(plugin[map5].visible,closemap5();openmap0(););
+		if(plugin[map6].visible,closemap6();openmap0(););
+		if(plugin[map7].visible,closemap7();openmap0(););
+	</action>
+	
+	<action name="checkMap1">
+		if(plugin[map0].visible,closemap0();openmap1(););
+
+		if(plugin[map2].visible,closemap2();openmap1(););
+		if(plugin[map3].visible,closemap3();openmap1(););
+		if(plugin[map4].visible,closemap4();openmap1(););
+		if(plugin[map5].visible,closemap5();openmap1(););
+		if(plugin[map6].visible,closemap6();openmap1(););
+		if(plugin[map7].visible,closemap7();openmap1(););
+	</action>
+	
+	<action name="checkMap2">
+		if(plugin[map0].visible,closemap0();openmap2(););
+		if(plugin[map1].visible,closemap1();openmap2(););
+		
+		if(plugin[map3].visible,closemap3();openmap2(););
+		if(plugin[map4].visible,closemap4();openmap2(););
+		if(plugin[map5].visible,closemap5();openmap2(););
+		if(plugin[map6].visible,closemap6();openmap2(););
+		if(plugin[map7].visible,closemap7();openmap2(););
+	</action>
+	
+	<action name="checkMap3">
+		if(plugin[map0].visible,closemap0();openmap3(););
+		if(plugin[map1].visible,closemap1();openmap3(););
+		if(plugin[map2].visible,closemap2();openmap3(););
+	
+		if(plugin[map4].visible,closemap4();openmap3(););
+		if(plugin[map5].visible,closemap5();openmap3(););
+		if(plugin[map6].visible,closemap6();openmap3(););
+		if(plugin[map7].visible,closemap7();openmap3(););
+	</action>
+	
+	<action name="checkMap4">
+		if(plugin[map0].visible,closemap0();openmap4(););
+		if(plugin[map1].visible,closemap1();openmap4(););
+		if(plugin[map2].visible,closemap2();openmap4(););
+		if(plugin[map3].visible,closemap3();openmap4(););
+	
+		if(plugin[map5].visible,closemap5();openmap4(););
+		if(plugin[map6].visible,closemap6();openmap4(););
+		if(plugin[map7].visible,closemap7();openmap4(););
+	</action>
+	
+	<action name="checkMap5">
+		if(plugin[map0].visible,closemap0();openmap5(););
+		if(plugin[map1].visible,closemap1();openmap5(););
+		if(plugin[map2].visible,closemap2();openmap5(););
+		if(plugin[map3].visible,closemap3();openmap5(););
+		if(plugin[map4].visible,closemap4();openmap5(););
+		
+		if(plugin[map6].visible,closemap6();openmap5(););
+		if(plugin[map7].visible,closemap7();openmap5(););
+	</action>
+	
+	<action name="checkMap6">
+		if(plugin[map0].visible,closemap0();openmap6(););
+		if(plugin[map1].visible,closemap1();openmap6(););
+		if(plugin[map2].visible,closemap2();openmap6(););
+		if(plugin[map3].visible,closemap3();openmap6(););
+		if(plugin[map4].visible,closemap4();openmap6(););
+		if(plugin[map5].visible,closemap5();openmap6(););
+		
+		if(plugin[map7].visible,closemap7();openmap6(););
+	</action>
+	
+	<action name="checkMap7">
+		if(plugin[map0].visible,closemap0();openmap7(););
+		if(plugin[map1].visible,closemap1();openmap7(););
+		if(plugin[map2].visible,closemap2();openmap7(););
+		if(plugin[map3].visible,closemap3();openmap7(););
+		if(plugin[map4].visible,closemap4();openmap7(););
+		if(plugin[map5].visible,closemap5();openmap7(););
+		if(plugin[map6].visible,closemap6();openmap7(););
+		
+	</action>
+		
+
+
+				
+	
+</krpano>

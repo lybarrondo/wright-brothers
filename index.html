@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Wright Brothers Virtual Tour </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+	
+	<!-- Set user screen for best VR viewing conditions. -->
+	<style>
+		html { height:100%; }
+		body { height:100%; overflow:hidden; margin:0; padding:0; font-family:DINOT, Arial, Helvetica, sans-serif; font-size:16px; color:#FFFFFF; background-color:#000000; }
+		p {color:#13181f;}
+		a:link { color:blue; text-decoration:none; }
+		a:visited { color:purple; text-decoration:underline; }
+		a:hover { color:purple; text-decoration:underline; }
+		h2 { color:black; margin-top: 0px;}
+	</style>
+	
+	<!-- Hiding class, "sr-only" makes content visible only to screen-readers (sr) -->
+	<link rel="stylesheet" href="plugins/sr-only.css">	
+	
+	<style>
+		
+	@font-face {
+	font-family: DINOT;
+	src: url(fonts/DINOT.otf) format("opentype");
+
+	}
+	</style>
+		  
+	  <!-- Google tag (gtag.js) -->
+	  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133364358-2"></script>
+	  <script>
+	    window.dataLayer = window.dataLayer || [];
+	    function gtag(){dataLayer.push(arguments);}
+	    gtag('js', new Date());
+
+	    gtag('config', 'UA-133364358-2');
+	  </script>
+	
+	<script>
+	  function track_obj_006()
+	  {
+	  	gtag('event', 'click', { 
+	  	 'event_category': 'object', 
+	  	 'event_label': 'obj_006', 
+	  	});
+	  }
+	</script>
+	
+</head>
+<body>
+	
+	<!-- Display a title to screen readers only, PERHAPS ADD A LISTENING EVENT HERE FOR "TAB" Key to load 508/index.html  -->
+	<h1 class="sr-only">Wright Brothers Virtual Tour</h1>
+	
+	
+	<h1 class="sr-only"><a href="https://airandspace.si.edu/virtual-tours/wright-brothers/508/index.html#home">open accessible version</a></h1>
+	
+	<h1 class="sr-only">Accessibility Mode. Explore the <i>Wright Brothers</i> Virtual Tour using your favorite assistive technology. If you have comments or questions about this tour, please contact us at nasmweb@si.edu.</h1>
+	
+	<h1 class="sr-only">Welcome to the Virtual Tour of <i>The Wright Brothers &amp; The Invention of the Aerial Age</i> exhibition opened in 2022 at the National Air and Space Museum in Washington, DC. This exhibition explores who Wilbur and Orville Wright were, what they achieved and how they did it, and how the world first reacted to their revolutionary invention. At the center of the story and the heart of the gallery is the 1903 Wright Flyer, one of the most iconic artifacts in the Smithsonian&#39;s collection.</h1>
+	
+	
+	
+	
+	<!-- Load the VR Player (Javascript library from krpano.com, v1.21.0)-->
+	<script src="tour.js"></script>
+
+	<!-- Open a VR Player Window and load UX, check for Javascript, then load UI. -->
+	<div id="pano" style="width:100%;height:100%;">
+	<!-- Check to make sure Javascript is enabled. -->
+	<noscript><table style="width:100%;height:100%;"><tr style="vertical-align:middle;"><td><div style="text-align:center;">ERROR:<br/><br/>Javascript not activated<br/><br/></div></td></tr></table></noscript>
+	<!-- Open a VR Player Window and load UX, "tour.xml", it then loads a user-based UI, "skin/vtourskin.xml". -->
+	<script>
+		embedpano({xml:"tour.xml", target:"pano", html5:"only", mobilescale:1.0, passQueryParameters:"startscene,startlookat"});
+	</script>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<krpano>	
+
+<!-- ####  OVERLAYS #### -->
+	
+		<layer name="mask-welcome" type="container" align="center" width="100%" height="100%" bgcolor="0x000000" bgalpha="0.92" zorder="1" bgcapture="true" 
+			keep="true"
+			visible="false" 
+			handcursor="false"
+			onclick="close-mask(mask-welcome);show_layers();hide_guide();set(layer[cont-508].visible,false);"
+			/>
+			
+		<layer name="mask-x" 
+			parent="mask-welcome" handcursor="false"
+			url="ifg/close-X.png" 
+			scale="0.35"
+			keep="true" devices="normal" 
+			align="topright" x="0" y="0" tooltip="close" 
+			onover="set(layer[mask-x].url, ifg/close-XO.png);"
+			onout="set(layer[mask-x].url, ifg/close-X.png);"
+			onclick="close-mask(mask-welcome);show_layers();hide_guide();set(layer[cont-508].visible,false);"
+			/>
+			
+		<layer name="o-menu" devices="normal"
+			parent="mask-welcome" url="ifg/UI-ldr-L.png" align="topleft" edge="topleft" x="240" y="-40"  scale="0.55" alpha="0.0"
+			handcursor="false"
+			keep="true"
+			/>	
+			
+		<layer name="o-menu-txt" devices="normal"
+			parent="o-menu" 
+			url="plugins/textfield.swf"  
+			html="data:g-menu" css="font-family:DINOT; color:0xEFEFEF; font-size:22px; letter-spacing: 0.05em;"
+			align="bottomright" edge="left" x="-2" y="0"  scale="0.6"
+			background="false" handcursor="false"
+			keep="true"
+			/>
+			
+		<layer name="o-settings" devices="normal"
+			parent="mask-welcome" url="ifg/UI-ldr-R.png" align="topright" edge="topright" x="120" y="-160"  scale="0.40" alpha="0.0" handcursor="false"
+			tooltip="UI element | intro screen"
+			keep="true"
+			/>
+			
+		<layer name="o-settings-btn" devices="normal" handcursor="false"
+			parent="o-settings" url="ifg/btn-508-2.png" align="topright" edge="left" x="2" y="0"  scale="0.40" alpha="1.0" 
+			keep="true"
+			/>
+			
+		<layer name="o-settings-txt" devices="normal"
+			parent="o-settings" handcursor="false"
+			url="plugins/textfield.swf"  
+			html="data:g-settings" css="font-family:DINOT; color:0xEFEFEF; font-size:22px; letter-spacing: 0.05em;"
+			align="bottomleft" edge="right" x="-57" y="0"  scale="0.6"
+			background="false"
+			keep="true"
+			/>
+
+		<layer name="o-title" devices="normal" handcursor="false"
+			parent="mask-welcome" url="ifg/UI-ldr-title.png" align="bottom" edge="bottomleft" x="-224" y="40"  scale="0.55" alpha="0.0"
+			tooltip="UI element | intro screen"
+			keep="true"
+			/>
+			
+		<layer name="o-title-txt" devices="normal"
+			parent="o-title" handcursor="false"
+			url="plugins/textfield.swf"  
+			html="data:g-title" css="font-family:DINOT; color:0xEFEFEF; font-size:21px; letter-spacing: 0.04em;"
+			align="topright" edge="bottomleft" x="2" y="4"  scale="0.6"
+			background="false"
+			keep="true"
+			/>
+		
+		<layer name="o-box" devices="normal" handcursor="false"
+			parent="mask-welcome"  align=" bottom" edge="bottom" x="14" y="0"  scale="0.40" alpha="0.0"
+			tooltip="UI element | intro screen"
+			keep="true"
+			/>		
+		
+		<layer name="o-zoom-in" devices="normal" handcursor="false"
+			parent="mask-welcome" url="ifg/UI-ldr-LL.png" align="bottom" edge="bottomleft" x="142" y="42"  scale="0.55" alpha="0.0"
+			keep="true"
+			/>
+			
+		<layer name="o-Zin-txt" devices="normal" handcursor="false"
+			parent="o-zoom-in" 
+			url="plugins/textfield.swf"  
+			html="data:g-Zin" css="font-family:DINOT; color:0xEFEFEF; font-size:21px; letter-spacing: 0.04em;"
+			align="topright" edge="bottomleft" x="2" y="4"  scale="0.6"
+			background="false"
+			keep="true"
+			/>
+			
+		<layer name="o-zoom-out" devices="normal" handcursor="false"
+			parent="mask-welcome" url="ifg/UI-ldr-LL-.png" align="bottom" edge="bottomleft" x="105.5" y="50"  scale="0.55" alpha="0.0"
+			keep="true"
+			/>
+			
+		<layer name="o-Zout-txt" devices="normal" handcursor="false"
+			parent="o-zoom-out" 
+			url="plugins/textfield.swf"  
+			html="data:g-Zout" css="font-family:DINOT; color:0xEFEFEF; font-size:21px; letter-spacing: 0.04em;"
+			align="topright" edge="bottomleft" x="2" y="4"  scale="0.6"
+			background="false"
+			keep="true"
+			/>
+			
+		<layer name="o-backward" devices="normal" handcursor="false"
+			parent="mask-welcome" url="ifg/UI-ldr-UL-.png" align="bottom" edge="topleft" x="-198" y="14"  scale="0.55" alpha="0.0"
+			keep="true"
+			/>
+			
+		<layer name="o-backward-txt" devices="normal" handcursor="false"
+			parent="o-backward" 
+			url="plugins/textfield.swf"  
+			html="data:g-backward" css="font-family:DINOT; color:0xEFEFEF; font-size:22px; letter-spacing: 0.05em;"
+			align="bottomright" edge="left" x="0" y="3"  scale="0.6"
+			background="false"
+			keep="true"
+			/>
+			
+		<layer name="o-stops" devices="normal" handcursor="false"
+			parent="mask-welcome" url="ifg/UI-ldr-UL.png" align="bottom" edge="topleft" x="-154" y="14"  scale="0.55" alpha="0.0"
+			tooltip="UI element | intro screen"
+			keep="true"
+			/>
+			
+		<layer name="o-stops-txt" devices="normal" handcursor="false"
+			parent="o-stops" 
+			url="plugins/textfield.swf"  
+			html="data:g-stops" css="font-family:DINOT; color:0xEFEFEF; font-size:22px; letter-spacing: 0.05em;"
+			align="bottomright" edge="left" x="0" y="11"  scale="0.6"
+			background="false"
+			keep="true"
+			/>
+
+		<layer name="o-full" devices="normal" handcursor="false"
+			parent="mask-welcome" url="ifg/UI-ldr-UR.png" align="bottom" edge="topright" x="255" y="1"  scale="0.6" alpha="0.0"
+			tooltip="UI element | intro screen" zorder="80"
+			keep="true"
+			/>		
+			
+		<layer name="o-full-txt" devices="normal" handcursor="false"
+			parent="o-full" 
+			url="plugins/textfield.swf"  
+			html="data:g-full" css="font-family:DINOT; color:0xEFEFEF; font-size:22px; letter-spacing: 0.05em;"
+			align="bottomleft" edge="right" x="-38" y="14"  scale="0.6"
+			background="false"
+			keep="true"
+			/>
+			
+		<layer name="o-forward" devices="normal" handcursor="false"
+			parent="mask-welcome" url="ifg/UI-ldr-UR-.png" align="bottom" edge="topright" x="340" y="16"  scale="0.55" alpha="0.0"
+			tooltip="UI element | intro screen"
+			keep="true"
+			/>
+			
+		<layer name="o-forward-txt" devices="normal" handcursor="false"
+			parent="o-forward" 
+			url="plugins/textfield.swf"  
+			html="data:g-forward" css="font-family:DINOT; color:0xEFEFEF; font-size:22px; letter-spacing: 0.05em;"
+			align="bottomleft" edge="right" x="-38" y="0"  scale="0.6"
+			background="false"
+			keep="true"
+			/>
+	
+</krpano>
